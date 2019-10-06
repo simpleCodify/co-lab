@@ -16,8 +16,9 @@ const NavBar = props => {
 					<Nav.Link href="/">Home</Nav.Link>
 					<Nav.Link href="/">Profile</Nav.Link>
 					<NavDropdown title="Co-Lab" id="collasible-nav-dropdown">
-						<NavDropdown.Item href="/">View Projects</NavDropdown.Item>
+						<NavDropdown.Item href="/projects/">View Projects</NavDropdown.Item>
 						<NavDropdown.Item href="/">My Projects</NavDropdown.Item>
+						<NavDropdown.Item href="/projects/add">Create Project</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item href="/">Applications</NavDropdown.Item>
 					</NavDropdown>

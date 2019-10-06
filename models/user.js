@@ -1,10 +1,9 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 6;
 
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
 	{
 		name: String,
 		email: {
@@ -19,8 +18,8 @@ const userSchema = new Schema(
 		skills: [String],
 		github_link: [String],
 		linkedin_link: String,
-		current_projects: [Schema.Types.ObjectId, (ref = "Project")],
-		current_applications: [Schema.Types.ObjectId, (ref = "Application")]
+		current_projects: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
+		current_applications: [{ type: mongoose.Schema.Types.ObjectId, ref: "Application" }]
 	},
 	{ timestamps: true }
 );

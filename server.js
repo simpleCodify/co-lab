@@ -13,6 +13,9 @@ require("dotenv").config();
 // Database Connect
 require("./config/database");
 
+let usersRouter = require("./routes/api/users");
+let projectsRouter = require("./routes/api/projects");
+
 app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
@@ -21,7 +24,9 @@ app.use(bodyParser.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
-app.use("/api/users", require("./routes/api/users"));
+app.use("/api/users", usersRouter);
+app.use("/api/projects", projectsRouter);
+
 app.use(require("./config/auth"));
 
 app.get("/*", function(req, res) {
