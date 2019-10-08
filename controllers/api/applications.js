@@ -22,14 +22,8 @@ async function detail(req, res) {
 async function create(req, res) {
 	// Destructuring allows to modify Object prior to Saving
 	let newApplication = { ...req.body };
-
-	// newApplication.applicant = req.user;
-	// newApplication.target_project = req.params.id;
-	// newApplication.target_position = req.body.position._id;
-
-	newApplication.applicant = req.user;
-	newApplication.target_project = "req.params.id";
-	newApplication.target_position = "req.body.position._id";
+	console.log("new application : ", newApplication);
+	console.log("inside application create function");
 
 	const application = await Application.create(newApplication);
 

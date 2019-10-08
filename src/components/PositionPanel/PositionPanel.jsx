@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import applicationService from "../../utils/applicationService";
 
 const PositionPanel = props => {
 	return (
@@ -15,7 +13,13 @@ const PositionPanel = props => {
 
 				{/* Create Application if UserID !== POSuser*/}
 
-				{props.posuser !== props.user._id ? <Button type="submit">Apply</Button> : ""}
+				{props.posuser !== props.user._id ? (
+					<form onSubmit={props.onsubmit}>
+						<Button type="submit">Apply</Button>
+					</form>
+				) : (
+					""
+				)}
 			</Card.Body>
 		</Card>
 	);

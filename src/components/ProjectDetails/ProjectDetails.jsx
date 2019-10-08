@@ -7,6 +7,7 @@ import * as applicationAPI from "../../utils/applicationService";
 export default class ProjectDetails extends Component {
 	state = {
 		project: "",
+		positions: "",
 		user: userService.getUser()
 	};
 
@@ -21,18 +22,40 @@ export default class ProjectDetails extends Component {
 	async componentDidMount() {
 		const id = this.props.match.params.id;
 		const { data } = await Axios.get(`/api/projects/${id}`);
-		this.setState({ project: data });
+		this.setState({ project: data, positions: data.positions });
 	}
 
-	onSubmit(e) {
-		const newApp = {
-			applicant: this.state.user._id,
+	handleAddApplication = async newAppData => {
+		const newApplication = await applicationAPI.create(newAppData);
+	};
+
+	// onSubmit(e) {
+	// 	const newApp = {
+	// 		applicant: this.state.user._id,
+	// 		target_project: this.state.project._id,
+	// 		target_position: this.state.project._id
+	// 	};
+
+	// 	Axios.post("/api/applications/", newApp).then(res => console.log(res.data));
+	// }
+
+	handleSubmit = async e => {
+		e.preventDefault();
+		let applicationData = {
 			target_project: this.state.project._id,
-			target_position: this.state.project._id
+			applicant: this.state.user._id
 		};
+		console.log("Inside ProjectDetails.jsx : application data ::: ", applicationData);
 
-		Axios.post("/api/applications/", newApp).then(res => console.log(res.data));
-	}
+		try {
+			await this.handleAddApplication({ applicationData });
+			// Is it possible to redirect to new project detail from history?
+			console.log("Inside the TRY block from ProjectDetails : application data : ", applicationData);
+			this.props.history.push("/projects");
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	render() {
 		return (
@@ -45,7 +68,7 @@ export default class ProjectDetails extends Component {
 					<li>Project Team Size: {this.state.project.project_team_size}</li>
 					<br />
 					{/* {this.state.project !== "" ? this.state.project.positions.map(pos => <p>{pos.status}</p>) : "Loading..."} */}
-					{this.state.project !== "" ? this.state.project.positions.map(pos => <PositionPanel posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.onSubmit} />) : "Loading..."}
+					{this.state.project !== "" ? this.state.project.positions.map(pos => <PositionPanel posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} />) : "Loading..."}
 				</ul>
 			</>
 		);
