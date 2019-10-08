@@ -1,5 +1,6 @@
 const Project = require("../../models/project");
 const User = require("../../models/user");
+const Application = require("../../models/application");
 
 module.exports = {
 	index,
@@ -9,13 +10,13 @@ module.exports = {
 };
 
 async function index(req, res) {
-	const projects = await Project.find({});
-	res.status(200).json(projects);
+	const applications = await Application.find({});
+	res.status(200).json(applications);
 }
 
 async function detail(req, res) {
-	const project = await Project.findById(req.params.id);
-	res.status(200).json(project);
+	const application = await Application.findById(req.params.id);
+	res.status(200).json(application);
 }
 
 async function create(req, res) {
@@ -48,6 +49,6 @@ async function create(req, res) {
 }
 
 async function update(req, res) {
-	const updatedProject = await Project.findByIdAndUpdate(req.params.id, req.body, { new: true });
-	res.status(200).json(updatedProject);
+	const updatedApplication = await Application.findByIdAndUpdate(req.params.id, req.body, { new: true });
+	res.status(200).json(updatedApplication);
 }

@@ -6,7 +6,7 @@ const positionSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
 	},
-	project: { type: mongoose.Schema.Types.ObjectId, ref: "Project" },
+	// project: { type: mongoose.Schema.Types.ObjectId, ref: "Project" },
 	status: {
 		type: String,
 		default: "Open"
@@ -19,7 +19,7 @@ const projectSchema = new mongoose.Schema({
 	project_description: String,
 	project_team_size: Number,
 	positions: [positionSchema],
-	project_members: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+	// project_members: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 	project_applications: [{ type: mongoose.Schema.Types.ObjectId, ref: "Application" }],
 
 	project_github_link: String,

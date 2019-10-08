@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./AddProjectPage";
 import Button from "react-bootstrap/Button";
+import userService from "../../utils/userService";
 
 class AddProjectPage extends Component {
 	state = {
@@ -9,7 +10,7 @@ class AddProjectPage extends Component {
 			project_name: "",
 			project_team_size: "1",
 			project_description: "",
-			project_owner: ""
+			positions: []
 		}
 	};
 
@@ -50,10 +51,10 @@ class AddProjectPage extends Component {
 						<label>Project Team Size</label>
 						<input className="form-control" name="project_team_size" value={this.state.formData.project_team_size} onChange={this.handleChange} required />
 					</div>
-					<div className="form-group">
+					{/* <div className="form-group">
 						<label>Project Owner</label>
 						<input className="form-control" name="project_owner" value={this.state.formData.project_owner} onChange={this.handleChange} required />
-					</div>
+					</div> */}
 					<Button type="submit" disabled={this.state.invalidForm}>
 						Create Project
 					</Button>
