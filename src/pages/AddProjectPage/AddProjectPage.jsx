@@ -20,7 +20,8 @@ class AddProjectPage extends Component {
 		e.preventDefault();
 		try {
 			await this.props.handleAddProject(this.state.formData);
-			this.props.history.push("/");
+			// Is it possible to redirect to new project detail from history?
+			this.props.history.push("/projects");
 		} catch (err) {
 			console.log(err);
 		}

@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 ReactDOM.render(
 	<Router>
-		<Route component={App} />
+		{/* <Route component={App} /> */}
+		<Route render={({ history }) => <App history={history} />} />
 	</Router>,
 	document.getElementById("root")
 );

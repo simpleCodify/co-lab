@@ -5,7 +5,7 @@ const Project = require("../../models/project");
 const applicationsCtrl = require("../../controllers/api/applications");
 
 /*---------- Public Routes ----------*/
-router.get("/", applicationsCtrl.index);
+// router.get("/", applicationsCtrl.index);
 router.get("/:id", applicationsCtrl.detail);
 
 /*---------- Protected Routes ----------*/

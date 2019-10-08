@@ -15,6 +15,7 @@ require("./config/database");
 
 let usersRouter = require("./routes/api/users");
 let projectsRouter = require("./routes/api/projects");
+let applicationsRouter = require("./routes/api/applications");
 
 app.use(cors());
 app.use(logger("dev"));
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, "build")));
 
 app.use("/api/users", usersRouter);
 app.use("/api/projects", projectsRouter);
+app.use("/api/applications", applicationsRouter);
 
 app.use(require("./config/auth"));
 

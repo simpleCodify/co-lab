@@ -21,31 +21,31 @@ async function detail(req, res) {
 
 async function create(req, res) {
 	// Destructuring allows to modify Object prior to Saving
-	let newProject = { ...req.body };
-	newProject.project_owner = req.user;
-	let tsize = newProject.project_team_size;
-	for (let i = 0; i < tsize; i++) {
-		if (i < 1) {
-			newProject.positions.push({ user: req.user._id, role: req.user.role, status: "Filled" });
-		} else {
-			newProject.positions.push({ user: null });
-		}
-	}
-	const project = await Project.create(newProject);
+	let newApplication = { ...req.body };
 
-	User.findByIdAndUpdate(
-		req.user._id,
-		{
-			$push: { current_projects: project._id }
-		},
-		function(err) {
-			if (err) {
-				return res.send(err);
-			}
-			return;
-		}
-	);
-	res.status(201).json(project);
+	// newApplication.applicant = req.user;
+	// newApplication.target_project = req.params.id;
+	// newApplication.target_position = req.body.position._id;
+
+	newApplication.applicant = req.user;
+	newApplication.target_project = "req.params.id";
+	newApplication.target_position = "req.body.position._id";
+
+	const application = await Application.create(newApplication);
+
+	// User.findByIdAndUpdate(
+	// 	req.user._id,
+	// 	{
+	// 		$push: { current_applications: application._id }
+	// 	},
+	// 	function(err) {
+	// 		if (err) {
+	// 			return res.send(err);
+	// 		}
+	// 		return;
+	// 	}
+	// );
+	res.status(201).json(application);
 }
 
 async function update(req, res) {
