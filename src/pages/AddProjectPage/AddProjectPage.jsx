@@ -10,6 +10,7 @@ class AddProjectPage extends Component {
 			project_name: "",
 			project_team_size: "1",
 			project_description: "",
+			project_members: [],
 			positions: []
 		}
 	};

@@ -8,7 +8,8 @@ export default class ProjectDetails extends Component {
 	state = {
 		project: "",
 		positions: "",
-		user: userService.getUser()
+		user: userService.getUser(),
+		target_position: ""
 	};
 
 	// componentDidMount() {
@@ -29,21 +30,21 @@ export default class ProjectDetails extends Component {
 		const newApplication = await applicationAPI.create(newAppData);
 	};
 
-	// onSubmit(e) {
-	// 	const newApp = {
-	// 		applicant: this.state.user._id,
-	// 		target_project: this.state.project._id,
-	// 		target_position: this.state.project._id
-	// 	};
-
-	// 	Axios.post("/api/applications/", newApp).then(res => console.log(res.data));
-	// }
+	handleApplyClick = e => {
+		console.log(e.target.value);
+		console.log("This is inside the handle apply click! : ");
+		this.setState({ target_position: e.target.value });
+		console.log("After setting State upon clicking apply");
+		console.log("this state's target position: ", this.state.target_position);
+	};
 
 	handleSubmit = async e => {
 		e.preventDefault();
+		console.log(e.target.value);
 		let applicationData = {
 			target_project: this.state.project._id,
-			applicant: this.state.user._id
+			applicant: this.state.user._id,
+			target_position: this.state.target_position
 		};
 		console.log("Inside ProjectDetails.jsx : application data ::: ", applicationData);
 
@@ -68,7 +69,7 @@ export default class ProjectDetails extends Component {
 					<li>Project Team Size: {this.state.project.project_team_size}</li>
 					<br />
 					{/* {this.state.project !== "" ? this.state.project.positions.map(pos => <p>{pos.status}</p>) : "Loading..."} */}
-					{this.state.project !== "" ? this.state.project.positions.map(pos => <PositionPanel posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} />) : "Loading..."}
+					{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}
 				</ul>
 			</>
 		);

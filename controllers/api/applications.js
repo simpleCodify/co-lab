@@ -22,23 +22,24 @@ async function detail(req, res) {
 async function create(req, res) {
 	// Destructuring allows to modify Object prior to Saving
 	let newApplication = { ...req.body };
-	console.log("new application : ", newApplication);
-	console.log("inside application create function");
+	newApplication.applicant = req.user._id;
+	newApplication.target_project = req.body.applicationData.target_project;
+	newApplication.target_position = req.body.applicationData.target_position;
 
 	const application = await Application.create(newApplication);
 
-	// User.findByIdAndUpdate(
-	// 	req.user._id,
-	// 	{
-	// 		$push: { current_applications: application._id }
-	// 	},
-	// 	function(err) {
-	// 		if (err) {
-	// 			return res.send(err);
-	// 		}
-	// 		return;
-	// 	}
-	// );
+	User.findByIdAndUpdate(
+		req.user._id,
+		{
+			$push: { current_applications: application._id }
+		},
+		function(err) {
+			if (err) {
+				return res.send(err);
+			}
+			return;
+		}
+	);
 	res.status(201).json(application);
 }
 

@@ -21,6 +21,7 @@ async function detail(req, res) {
 async function create(req, res) {
 	// Destructuring allows to modify Object prior to Saving
 	let newProject = { ...req.body };
+	newProject.project_members.push(req.user);
 	newProject.project_owner = req.user;
 	let tsize = newProject.project_team_size;
 	for (let i = 0; i < tsize; i++) {
