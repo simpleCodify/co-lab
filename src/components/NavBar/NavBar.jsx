@@ -20,7 +20,7 @@ const NavBar = props => {
 						<NavDropdown.Item href="/">My Projects</NavDropdown.Item>
 						<NavDropdown.Item href="/projects/add">Create Project</NavDropdown.Item>
 						<NavDropdown.Divider />
-						<NavDropdown.Item href="/">Applications</NavDropdown.Item>
+						<NavDropdown.Item href="/applications">Applications</NavDropdown.Item>
 					</NavDropdown>
 				</Nav>
 				<Nav className="my-auto">

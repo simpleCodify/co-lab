@@ -7,6 +7,8 @@ import LoginPage from "../LoginPage/LoginPage";
 import AddProjectPage from "../AddProjectPage/AddProjectPage";
 import ProjectListPage from "../ProjectListPage/ProjectListPage";
 import ProjectDetails from "../../components/ProjectDetails/ProjectDetails";
+import PositionDetails from "../../components/PositionDetails/PositionDetails";
+import ApplicationManager from "../ApplicationManager/ApplicationManager";
 
 import * as projectAPI from "../../utils/projectService";
 import * as applicationAPI from "../../utils/applicationService";
@@ -39,10 +41,6 @@ class App extends Component {
 		const newProject = await projectAPI.create(newProjectData);
 	};
 
-	// handleAddApplication = async newAppData => {
-	// 	const newApplication = await applicationAPI.create(newAppData);
-	// };
-
 	async componentDidMount() {
 		const projects = await projectAPI.getAllProjects();
 		this.setState({ projects });
@@ -56,7 +54,10 @@ class App extends Component {
 					<Route exact path="/" render={({ history }) => <HomePage history={history} user={this.state.user} />} />
 					<Route exact path="/projects/" render={({ history }) => <ProjectListPage user={this.state.user} projects={this.state.projects} />} />
 					<Route exact path="/projects/add" render={({ history }) => <AddProjectPage history={history} handleAddProject={this.handleAddProject} user={this.state.user} />} />
+					<Route path="/projects/position/:id" component={PositionDetails} />
 					<Route path="/projects/:id" component={ProjectDetails} user={this.state.user} handleAddApplication={this.handleAddApplication} />
+					<Route path="/application/:id" component={ApplicationManager} />
+					{/* <Route path="/applications" render={({ history }) => <ApplicationManager history={history} />} /> */}
 					<Route path="/signup" render={({ history }) => <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
 					<Route path="/login" render={({ history }) => <LoginPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
 				</Switch>

@@ -6,7 +6,8 @@ module.exports = {
 	index,
 	detail,
 	create,
-	update
+	update,
+	appForPosition
 };
 
 async function index(req, res) {
@@ -17,6 +18,12 @@ async function index(req, res) {
 async function detail(req, res) {
 	const application = await Application.findById(req.params.id);
 	res.status(200).json(application);
+}
+
+async function appForPosition(req, res) {
+	console.log("Inside Application Controller AppforPosition", req.params.id);
+	const apps = await Application.find({ target_position: req.params.id });
+	res.status(200).json(apps);
 }
 
 async function create(req, res) {

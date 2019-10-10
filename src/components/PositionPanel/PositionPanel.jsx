@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
@@ -19,7 +20,15 @@ const PositionPanel = props => {
 							Apply
 						</Button>
 					) : (
-						""
+						<></>
+					)}
+
+					{props.user._id == props.project.project_owner ? (
+						<Link to={`/projects/position/${props.posid}`}>
+							<Button>Manage</Button>
+						</Link>
+					) : (
+						<></>
 					)}
 				</Card.Body>
 			</Card>

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Axios from "axios";
+import { Route, Switch } from "react-router-dom";
 import PositionPanel from "../../components/PositionPanel/PositionPanel";
+import PositionDetails from "../PositionDetails/PositionDetails";
+
 import userService from "../../utils/userService.js";
 import * as applicationAPI from "../../utils/applicationService";
 
@@ -31,11 +34,7 @@ export default class ProjectDetails extends Component {
 	};
 
 	handleApplyClick = e => {
-		console.log(e.target.value);
-		console.log("This is inside the handle apply click! : ");
 		this.setState({ target_position: e.target.value });
-		console.log("After setting State upon clicking apply");
-		console.log("this state's target position: ", this.state.target_position);
 	};
 
 	handleSubmit = async e => {
@@ -71,6 +70,12 @@ export default class ProjectDetails extends Component {
 					{/* {this.state.project !== "" ? this.state.project.positions.map(pos => <p>{pos.status}</p>) : "Loading..."} */}
 					{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}
 				</ul>
+
+				<h1>{this.state.user._id}</h1>
+				<h1>{this.state.project.project_owner}</h1>
+				<Switch>
+					<Route path="/projects/position/:id" component={PositionDetails} positionData={this.state.positions} />
+				</Switch>
 			</>
 		);
 	}

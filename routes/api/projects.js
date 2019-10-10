@@ -6,6 +6,7 @@ const projectsCtrl = require("../../controllers/api/projects");
 /*---------- Public Routes ----------*/
 router.get("/", projectsCtrl.index);
 router.get("/:id", projectsCtrl.detail);
+router.get("/position/:id", projectsCtrl.posdetail);
 
 /*---------- Protected Routes ----------*/
 router.use(require("../../config/auth"));

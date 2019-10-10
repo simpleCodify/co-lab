@@ -4,6 +4,7 @@ const User = require("../../models/user");
 module.exports = {
 	index,
 	detail,
+	posdetail,
 	create,
 	update
 };
@@ -16,6 +17,11 @@ async function index(req, res) {
 async function detail(req, res) {
 	const project = await Project.findById(req.params.id);
 	res.status(200).json(project);
+}
+
+async function posdetail(req, res) {
+	const posdetail = await Position.findById(req.params.id);
+	res.status(200).json(posdetail);
 }
 
 async function create(req, res) {

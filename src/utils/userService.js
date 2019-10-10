@@ -17,8 +17,6 @@ function signup(user) {
 			// Parameter destructuring!
 			.then(({ token }) => tokenService.setToken(token))
 	);
-	// The above could have been written as
-	//.then((token) => token.token);
 }
 
 function getUser() {
