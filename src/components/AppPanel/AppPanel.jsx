@@ -14,10 +14,10 @@ const AppPanel = props => {
 				<Card.Text>{props.applicant}</Card.Text>
 				<Card.Link>
 					<Link to={`#`}>
-						<Button>Approve</Button>
+						<Button onClick={props.approveApp}>Approve</Button>
 					</Link>
 					<Link to={`#`}>
-						<Button>Decline</Button>
+						<Button>Reject</Button>
 					</Link>
 				</Card.Link>
 			</Card.Body>

@@ -11,7 +11,8 @@ router.get("/:id", applicationsCtrl.appForPosition);
 /*---------- Protected Routes ----------*/
 router.use(require("../../config/auth"));
 router.post("/", checkAuth, applicationsCtrl.create);
-router.put("/:id", applicationsCtrl.update);
+router.put("/:id/approve", applicationsCtrl.appApprove);
+router.put("/:id/reject", applicationsCtrl.appReject);
 
 /*---------- Helper Functions ----------*/
 function checkAuth(req, res, next) {

@@ -7,7 +7,9 @@ module.exports = {
 	detail,
 	create,
 	update,
-	appForPosition
+	appForPosition,
+	appApprove,
+	appReject
 };
 
 async function index(req, res) {
@@ -20,9 +22,26 @@ async function detail(req, res) {
 	res.status(200).json(application);
 }
 
+async function appApprove(req, res) {
+	// console.log("BODDDYYYYY: ", req.body);
+	// let appData = { ...req.body };
+	// console.log("Request Params ID:   ", req.params.id);
+	// appData.status = "Approved";
+	// console.log("APP DATA :   ", appData);
+	const updatedapp = await Application.findByIdAndUpdate(req.params.id, { $set: { status: "Approved" } }, { new: true }, function(err) {
+		if (err) console.log(err);
+		return;
+	});
+	// console.log("Inside the Application AppApprove Controller:    ", req.body);
+	// console.log("UPDATED APP:  ", updatedapp);
+	res.status(200).json(updatedapp);
+}
+
+async function appReject(req, res) {}
+
 async function appForPosition(req, res) {
 	console.log("Inside Application Controller AppforPosition", req.params.id);
-	const apps = await Application.find({ target_position: req.params.id });
+	const apps = await Application.find({ target_position: req.params.id, status: "Pending" });
 	res.status(200).json(apps);
 }
 

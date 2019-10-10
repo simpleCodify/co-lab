@@ -14,12 +14,19 @@ class ApplicationManager extends Component {
 		this.setState({ applications });
 	}
 
+	handleApproveApp = async appData => {
+		appData = this.props.match.params.id;
+		await applicationAPI.appApprove(appData);
+
+		// check req.body and send in this.props.match.params.id
+	};
+
 	render() {
 		return (
 			<>
 				<h1>Application Listings ! Only the Applications for this Position should show!</h1>
 
-				{this.state.applications !== "" ? this.state.applications.map((app, idx) => <AppPanel key={idx} id={app._id} applicant={app.applicant} />) : "Loading..."}
+				{this.state.applications !== "" ? this.state.applications.map((app, idx) => <AppPanel key={idx} id={app._id} applicant={app.applicant} approveApp={this.handleApproveApp} />) : "Loading..."}
 			</>
 		);
 	}
