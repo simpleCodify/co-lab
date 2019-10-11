@@ -4,6 +4,7 @@ import userService from "../../utils/userService";
 
 class SignupForm extends Component {
 	state = {
+		username: "",
 		name: "",
 		email: "",
 		password: "",
@@ -39,6 +40,11 @@ class SignupForm extends Component {
 			<div>
 				<header className="header-footer">Sign Up</header>
 				<form className="form-horizontal" onSubmit={this.handleSubmit}>
+					<div className="form-group">
+						<div className="col-sm-12">
+							<input type="text" className="form-control" placeholder="Username" value={this.state.username} name="username" onChange={this.handleChange} />
+						</div>
+					</div>
 					<div className="form-group">
 						<div className="col-sm-12">
 							<input type="text" className="form-control" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />

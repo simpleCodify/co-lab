@@ -5,7 +5,8 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
 	signup,
-	login
+	login,
+	updateProfile
 };
 
 async function signup(req, res) {
@@ -19,6 +20,18 @@ async function signup(req, res) {
 		res.status(400).json(err);
 		console.log(err);
 	}
+}
+
+async function updateProfile(req, res) {
+	console.log("UPDATE WAS SENT A REQUEST");
+	let data = { ...req.body };
+	console.log("THIS IS THE REQ BODY:   ", data);
+	console.log("WHERE IS THIS REQ PARAMS ID?   ", req.params.id);
+	let currUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, updateduser) {
+		if (err) console.log(err);
+		return updateduser;
+	});
+	res.status(200).json(currUser);
 }
 
 async function login(req, res) {
@@ -39,5 +52,5 @@ async function login(req, res) {
 }
 
 function createJWT(user) {
-	return jwt.sign({ user }, SECRET, { expiresIn: "24h" });
+	return jwt.sign({ user }, SECRET, { expiresIn: "1h" });
 }

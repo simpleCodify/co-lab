@@ -65,15 +65,10 @@ export default class ProjectDetails extends Component {
 					<li>Project Owner: {this.state.project.project_owner}</li>
 					<li>Project Team Size: {this.state.project.project_team_size}</li>
 					<br />
-					{/* {this.state.project !== "" ? this.state.project.positions.map(pos => <p>{pos.status}</p>) : "Loading..."} */}
-					{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => 
-					<PositionPanel key={idx} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />
-					)
-				 : "Loading..."}
+
+					<div className="row mx-auto">{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}</div>
 				</ul>
 
-				<h1>{this.state.user._id}</h1>
-				<h1>{this.state.project.project_owner}</h1>
 				<Switch>
 					<Route path="/projects/position/:id" component={PositionDetails} positionData={this.state.positions} />
 				</Switch>
