@@ -23,24 +23,42 @@ async function detail(req, res) {
 }
 
 async function appApprove(req, res) {
-	// console.log("BODDDYYYYY: ", req.body);
-	// let appData = { ...req.body };
-	// console.log("Request Params ID:   ", req.params.id);
-	// appData.status = "Approved";
-	// console.log("APP DATA :   ", appData);
-	const updatedapp = await Application.findByIdAndUpdate(req.params.id, { $set: { status: "Approved" } }, { new: true }, function(err) {
-		if (err) console.log(err);
-		return;
+	let currentApp = await Application.findById(req.params.id);
+	let applicant = await User.findByIdAndUpdate(
+		currentApp.applicant,
+		{
+			$push: { current_projects: currentApp.target_project }
+		},
+		function(err) {
+			if (err) console.log(err);
+			return;
+		}
+	);
+	let project = await Project.findByIdAndUpdate(currentApp.target_project, {
+		$push: { project_members: currentApp.applicant }
 	});
-	// console.log("Inside the Application AppApprove Controller:    ", req.body);
-	// console.log("UPDATED APP:  ", updatedapp);
+	let position = await project.positions.id(currentApp.target_position);
+	position.user = currentApp.applicant;
+	position.status = "Filled";
+	project.save(err => {
+		console.log(err);
+	});
+	const updatedapp = await Application.findByIdAndUpdate(req.params.id, { status: "Approved" }, { new: true }, function(err, app) {
+		if (err) console.log(err);
+		return app;
+	});
 	res.status(200).json(updatedapp);
 }
 
-async function appReject(req, res) {}
+async function appReject(req, res) {
+	const updatedapp = await Application.findByIdAndUpdate(req.params.id, { status: "Rejected" }, { new: true }, function(err, app) {
+		if (err) console.log(err);
+		return app;
+	});
+	res.status(200).json(updatedapp);
+}
 
 async function appForPosition(req, res) {
-	console.log("Inside Application Controller AppforPosition", req.params.id);
 	const apps = await Application.find({ target_position: req.params.id, status: "Pending" });
 	res.status(200).json(apps);
 }

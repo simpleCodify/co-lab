@@ -12,14 +12,13 @@ const AppPanel = props => {
 				<br />
 				<Card.Subtitle>Applicant</Card.Subtitle>
 				<Card.Text>{props.applicant}</Card.Text>
-				<Card.Link>
-					<Link to={`#`}>
-						<Button onClick={props.approveApp}>Approve</Button>
-					</Link>
-					<Link to={`#`}>
-						<Button>Reject</Button>
-					</Link>
-				</Card.Link>
+
+				<Button onClick={props.approveApp} value={props.id}>
+					Approve
+				</Button>
+				<Button onClick={props.rejectApp} value={props.id}>
+					Reject
+				</Button>
 			</Card.Body>
 		</Card>
 	);

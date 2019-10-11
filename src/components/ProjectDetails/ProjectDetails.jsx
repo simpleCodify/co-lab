@@ -45,12 +45,10 @@ export default class ProjectDetails extends Component {
 			applicant: this.state.user._id,
 			target_position: this.state.target_position
 		};
-		console.log("Inside ProjectDetails.jsx : application data ::: ", applicationData);
 
 		try {
 			await this.handleAddApplication({ applicationData });
 			// Is it possible to redirect to new project detail from history?
-			console.log("Inside the TRY block from ProjectDetails : application data : ", applicationData);
 			this.props.history.push("/projects");
 		} catch (err) {
 			console.log(err);
@@ -68,7 +66,10 @@ export default class ProjectDetails extends Component {
 					<li>Project Team Size: {this.state.project.project_team_size}</li>
 					<br />
 					{/* {this.state.project !== "" ? this.state.project.positions.map(pos => <p>{pos.status}</p>) : "Loading..."} */}
-					{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}
+					{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => 
+					<PositionPanel key={idx} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />
+					)
+				 : "Loading..."}
 				</ul>
 
 				<h1>{this.state.user._id}</h1>

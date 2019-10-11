@@ -5,8 +5,9 @@ import Button from "react-bootstrap/Button";
 
 const PositionPanel = props => {
 	return (
+		<div className="col-md-3 mx-auto">
 		<form onSubmit={props.onsubmit}>
-			<Card style={{ width: "18rem" }}>
+			<Card>
 				<Card.Body>
 					<Card.Title>{props.posid}</Card.Title>
 					<Card.Subtitle>{props.posuser}</Card.Subtitle>
@@ -33,6 +34,7 @@ const PositionPanel = props => {
 				</Card.Body>
 			</Card>
 		</form>
+		</div>
 	);
 };
 

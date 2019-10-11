@@ -14,7 +14,7 @@ const NavBar = props => {
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="mr-auto">
 					<Nav.Link href="/">Home</Nav.Link>
-					<Nav.Link href="/">Profile</Nav.Link>
+					<Nav.Link href={`/profile/${props.user._id}`}>Profile</Nav.Link>
 					<NavDropdown title="Co-Lab" id="collasible-nav-dropdown">
 						<NavDropdown.Item href="/projects/">View Projects</NavDropdown.Item>
 						<NavDropdown.Item href="/">My Projects</NavDropdown.Item>

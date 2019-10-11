@@ -7,22 +7,6 @@ import Axios from "axios";
 import * as applicationAPI from "../../utils/applicationService";
 
 const PositionDetails = props => {
-	// class PositionDetails extends Component {
-	// state = {
-	// 	position: {},
-	// 	applications: []
-	// };
-
-	// async componentDidMount() {
-	// 	const applications = await applicationAPI.getAllApplications();
-	// 	this.setState({ applications });
-	// }
-
-	// async componentDidMount() {
-	// 	const id = this.match.params.id;
-	// 	const { data } = await Axios.get(`/api/projects/position/${id}`);
-	// 	this.setState({ position: data });
-	// }
 	let positionId = props.match.params.id;
 
 	return (
@@ -42,7 +26,6 @@ const PositionDetails = props => {
 						<Button>Manage Apps</Button>
 					</Link>
 				</Card.Body>
-				{/* <Link to={`/applications/${}`} */}
 			</Card>
 		</>
 	);

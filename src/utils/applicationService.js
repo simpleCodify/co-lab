@@ -21,6 +21,16 @@ export function appApprove(app) {
 	}).then(res => res.json());
 }
 
+export function appReject(app) {
+	console.log(app);
+	let application = { _id: `${app}` };
+	return fetch(`${BASE_URL}` + `${app}` + `/reject`, {
+		method: "PUT",
+		headers: { "content-type": "application/json" },
+		body: JSON.stringify(application)
+	}).then(res => res.json());
+}
+
 export function create(application) {
 	return fetch(BASE_URL, {
 		method: "POST",
