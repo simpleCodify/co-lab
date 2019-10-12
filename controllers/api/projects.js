@@ -37,6 +37,7 @@ async function create(req, res) {
 			newProject.positions.push({ user: null });
 		}
 	}
+	console.log("INSIDE PROJECT CREATION: ", newProject);
 	const project = await Project.create(newProject);
 
 	User.findByIdAndUpdate(

@@ -22,8 +22,9 @@ class ProfileForm extends Component {
 		e.preventDefault();
 		try {
 			await userService.updateProfile(this.state);
-			// Successfully signed up - show Login Page
-			this.props.history.push("/profile:id");
+			this.props.handleUpdateUser(this.state.user);
+			this.props.history.goBack();
+			// this.props.history.push("/");
 		} catch (err) {
 			console.log(err);
 		}
@@ -31,7 +32,7 @@ class ProfileForm extends Component {
 
 	render() {
 		return (
-			<div className="col-md-6 mx-auto text-center">
+			<div className="col-md-6 my-5 mx-auto text-center">
 				<h1> Profile Edit </h1>
 				<p>Edit your Profile</p>
 				<Form onSubmit={this.handleSubmit}>
@@ -65,12 +66,12 @@ class ProfileForm extends Component {
 							<Form.Row>
 								<Form.Group as={Col}>
 									<Form.Label>Github Profile</Form.Label>
-									<Form.Control type="Email" placeholder="Github Link" value={this.state.github_link} name="github_link" onChange={this.handleChange} />
+									<Form.Control type="Url" placeholder="Github Link" value={this.state.github_link} name="github_link" onChange={this.handleChange} />
 								</Form.Group>
 
 								<Form.Group as={Col}>
 									<Form.Label>LinkedIn Profile</Form.Label>
-									<Form.Control type="Email" placeholder="LinkedIn Link" value={this.state.linkedin_link} name="linkedin_link" onChange={this.handleChange} />
+									<Form.Control type="Url" placeholder="LinkedIn Link" value={this.state.linkedin_link} name="linkedin_link" onChange={this.handleChange} />
 								</Form.Group>
 							</Form.Row>
 						</Accordion.Collapse>

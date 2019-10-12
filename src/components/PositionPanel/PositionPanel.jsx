@@ -9,10 +9,11 @@ const PositionPanel = props => {
 			<form onSubmit={props.onsubmit}>
 				<Card>
 					<Card.Body>
-						<Card.Title>{props.posid}</Card.Title>
+						<Card.Title>{props.posnum}</Card.Title>
 						<Card.Subtitle>{props.posuser}</Card.Subtitle>
 						<br />
 						<Card.Text>{props.posstatus}</Card.Text>
+						{props.project.project_applications.length !== 0 && props.posstatus !== "Filled" ? <Card.Text>{props.project.project_applications.length} Applications</Card.Text> : ""}
 
 						{/* Create Application if UserID !== POSuser*/}
 

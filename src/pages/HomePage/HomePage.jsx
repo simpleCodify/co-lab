@@ -6,7 +6,7 @@ const HomePage = props => {
 		<div>
 			<h1>Welcome back !</h1>
 			<h3>Browse some Projects!</h3>
-			<p>{props.user.name}</p>
+			<p>{props.user.username}</p>
 		</div>
 	) : (
 		<div>
