@@ -6,6 +6,10 @@ export function getAllProjects() {
 	return fetch(BASE_URL).then(res => res.json());
 }
 
+export function getProjectDetails(id) {
+	return fetch(BASE_URL + id).then(res => res.json());
+}
+
 export function create(project) {
 	return fetch(BASE_URL, {
 		method: "POST",

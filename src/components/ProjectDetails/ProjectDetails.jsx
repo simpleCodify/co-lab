@@ -6,6 +6,7 @@ import PositionDetails from "../PositionDetails/PositionDetails";
 
 import userService from "../../utils/userService.js";
 import * as applicationAPI from "../../utils/applicationService";
+import * as projectAPI from "../../utils/projectService";
 
 export default class ProjectDetails extends Component {
 	state = {
@@ -25,8 +26,11 @@ export default class ProjectDetails extends Component {
 
 	async componentDidMount() {
 		const id = this.props.match.params.id;
-		const { data } = await Axios.get(`/api/projects/${id}`);
-		this.setState({ project: data, positions: data.positions });
+		const project = await projectAPI.getProjectDetails(id);
+		this.setState({ project: project, positions: project.positions });
+
+		// const { data } = await Axios.get(`/api/projects/${id}`);
+		// this.setState({ project: data, positions: data.positions });
 	}
 
 	handleAddApplication = async newAppData => {
@@ -62,11 +66,12 @@ export default class ProjectDetails extends Component {
 				<h3>Project Name: {this.state.project.project_name}</h3>
 				<ul>
 					<li>Project Description: {this.state.project.project_description}</li>
-					<li>Project Owner: {this.state.project.project_owner}</li>
+					{this.state.project !== "" ? <li>Project Owner: {this.state.project.project_owner.username}</li> : "Loading..."}
+
 					<li>Project Team Size: {this.state.project.project_team_size}</li>
 					<br />
 
-					<div className="row mx-auto">{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} posnum={idx+1} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}</div>
+					<div className="row mx-auto">{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} posnum={idx + 1} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}</div>
 				</ul>
 
 				<Switch>

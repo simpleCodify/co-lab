@@ -7,7 +7,7 @@ module.exports = {
 	signup,
 	login,
 	updateProfile,
-	getuser
+	findUser
 };
 
 async function signup(req, res) {
@@ -52,7 +52,7 @@ async function login(req, res) {
 	}
 }
 
-async function getuser(req, res) {
+async function findUser(req, res) {
 	const user = await User.findById(req.params.id);
 	res.status(200).json(user);
 }

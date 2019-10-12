@@ -18,8 +18,13 @@ async function index(req, res) {
 }
 
 async function detail(req, res) {
-	const application = await Application.findById(req.params.id);
-	res.status(200).json(application);
+	await Application.findById(req.params.id)
+		.populate("User")
+		.exec(function(err, application) {
+			console.log("Inside the application detail controller: ", application.applicant);
+			res.status(200).json(application);
+		});
+	// 	res.status(200).json(application);
 }
 
 async function appApprove(req, res) {
@@ -59,7 +64,7 @@ async function appReject(req, res) {
 }
 
 async function appForPosition(req, res) {
-	const apps = await Application.find({ target_position: req.params.id, status: "Pending" });
+	const apps = await Application.find({ target_position: req.params.id, status: "Pending" }).populate("applicant");
 	res.status(200).json(apps);
 }
 
@@ -69,8 +74,24 @@ async function create(req, res) {
 	newApplication.applicant = req.user._id;
 	newApplication.target_project = req.body.applicationData.target_project;
 	newApplication.target_position = req.body.applicationData.target_position;
+	var query = {
+			applicant: req.user._id,
+			target_project: req.body.applicationData.target_project,
+			target_position: req.body.applicationData.target_position
+		},
+		update = {
+			applicant: req.user._id
+		},
+		options = {
+			upsert: true,
+			new: true,
+			setDefaultsOnInsert: true
+		};
 
-	const application = await Application.create(newApplication);
+	const application = await Application.findOneAndUpdate(query, update, options, function(err, application) {
+		if (err) console.log(err);
+	});
+	// const application = await Application.create(newApplication);
 
 	User.findByIdAndUpdate(
 		req.user._id,

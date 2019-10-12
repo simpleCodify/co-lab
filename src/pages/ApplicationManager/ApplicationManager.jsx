@@ -2,11 +2,15 @@ import React, { Component } from "react";
 import AppPanel from "../../components/AppPanel/AppPanel";
 import axios from "axios";
 import * as applicationAPI from "../../utils/applicationService";
+import * as userAPI from "../../utils/userService";
 
 class ApplicationManager extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { applications: [] };
+		this.state = {
+			applications: [],
+			applicants: []
+		};
 	}
 
 	async componentDidMount() {

@@ -19,6 +19,10 @@ function signup(user) {
 	);
 }
 
+function findUser(user) {
+	return fetch(BASE_URL + user).then(res => res.json());
+}
+
 function updateProfile(data) {
 	console.log("INSIDE USERSERVICE UPDATE PROFILE :  ", data);
 	return fetch(BASE_URL + data._id + "/update", {
@@ -54,6 +58,7 @@ export default {
 	signup,
 	updateProfile,
 	getUser,
+	findUser,
 	logout,
 	login
 };

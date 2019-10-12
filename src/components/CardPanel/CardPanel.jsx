@@ -18,8 +18,8 @@ const CardPanel = props => {
 			</Card.Header>
 			<Accordion.Collapse eventKey={props.eventKey}>
 				<Card.Body>
-					<Card.Title>{props.name}</Card.Title>
-					<Card.Subtitle>{props.owner}</Card.Subtitle>
+					<Card.Title>Project Leader: {props.owner}</Card.Title>
+					<Card.Subtitle>Project Members: {props.members !== "" ? props.members.map(member => <p>{member.username}</p>) : "Loading..."}</Card.Subtitle>
 					<br />
 					<Card.Text>{props.desc}</Card.Text>
 					<Card.Subtitle>{props.team_size}</Card.Subtitle>

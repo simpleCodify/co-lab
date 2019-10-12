@@ -6,9 +6,11 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
+import "./NavBar.css"
+
 const NavBar = props => {
 	let nav = props.user ? (
-		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+		<Navbar className="navbar" collapseOnSelect expand="lg" >
 			<Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
@@ -31,7 +33,7 @@ const NavBar = props => {
 			</Navbar.Collapse>
 		</Navbar>
 	) : (
-		<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+		<Navbar collapseOnSelect expand="lg" >
 			<Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">

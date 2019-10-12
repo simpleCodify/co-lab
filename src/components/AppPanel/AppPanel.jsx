@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import userService from "../../utils/userService";
+import Axios from "axios";
 
 const AppPanel = props => {
 	return (
@@ -11,7 +13,8 @@ const AppPanel = props => {
 				<Card.Title>{props.id}</Card.Title>
 				<br />
 				<Card.Subtitle>Applicant</Card.Subtitle>
-				<Card.Text>{props.applicant}</Card.Text>
+				<Card.Text>{props.applicant.username}</Card.Text>
+				<Card.Subtitle>{props.applicant.email}</Card.Subtitle>
 
 				<Button onClick={props.approveApp} value={props.id}>
 					Approve

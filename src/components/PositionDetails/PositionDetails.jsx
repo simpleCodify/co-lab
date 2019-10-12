@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+import ListGroup from "react-bootstrap/ListGroup";
 
 import Axios from "axios";
 import * as applicationAPI from "../../utils/applicationService";
@@ -10,7 +11,7 @@ const PositionDetails = props => {
 	let positionId = props.match.params.id;
 
 	return (
-		<>
+		<div className="col-md-6 mx-auto">
 			<h1>Position Details / Management Page, Applications? What's going on anymore...</h1>
 			<Card>
 				<Card.Header>
@@ -27,7 +28,15 @@ const PositionDetails = props => {
 					</Link>
 				</Card.Body>
 			</Card>
-		</>
+
+			<Card style={{ width: "18rem" }}>
+				<ListGroup variant="flush">
+					<ListGroup.Item>Cras justo odio</ListGroup.Item>
+					<ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+					<ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+				</ListGroup>
+			</Card>
+		</div>
 	);
 };
 
