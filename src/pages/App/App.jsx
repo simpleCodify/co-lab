@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import HomePage from "../HomePage/HomePage.jsx";
-import SignupPage from "../SignupPage/SignupPage";
-import LoginPage from "../LoginPage/LoginPage";
+// import SignupPage from "../SignupPage/SignupPage";
+// import LoginPage from "../LoginPage/LoginPage";
+import UserPortal from "../UserPortal/UserPortal";
 import AddProjectPage from "../AddProjectPage/AddProjectPage";
 import ProjectListPage from "../ProjectListPage/ProjectListPage";
 
@@ -11,14 +12,11 @@ import ProfileView from "../../components/ProfileView/ProfileView";
 import ProfileForm from "../../components/ProfileForm/ProfileForm";
 
 import ProjectDetails from "../../components/ProjectDetails/ProjectDetails";
-import PositionDetails from "../../components/PositionDetails/PositionDetails";
 import ApplicationManager from "../ApplicationManager/ApplicationManager";
 
 import * as projectAPI from "../../utils/projectService";
-import * as applicationAPI from "../../utils/applicationService";
 
 import userService from "../../utils/userService.js";
-import * as tokenService from "../../utils/tokenService";
 import Axios from "axios";
 
 class App extends Component {
@@ -128,8 +126,9 @@ class App extends Component {
 					<Route path="/application/:id" component={ApplicationManager} />
 
 					{/* User Signup / Login Routes */}
-					<Route path="/signup" render={({ history }) => <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
-					<Route path="/login" render={({ history }) => <LoginPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
+					<Route path="/portal" render={({ history }) => <UserPortal history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
+					{/* <Route path="/signup" render={({ history }) => <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
+					<Route path="/login" render={({ history }) => <LoginPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} /> */}
 				</Switch>
 			</div>
 		);

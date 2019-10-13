@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 // Importing React-Bootstrap Components
 import Navbar from "react-bootstrap/Navbar";
@@ -41,10 +40,7 @@ const NavBar = props => {
 					<Nav.Link href="/projects/">Projects</Nav.Link>
 				</Nav>
 				<Nav>
-					<NavDropdown title="Account" id="collapsible-nav-dropdown" className="ml-auto">
-						<NavDropdown.Item href="/login">Login</NavDropdown.Item>
-						<NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
-					</NavDropdown>
+					<Nav.Link href="/portal">Portal</Nav.Link>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>

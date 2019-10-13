@@ -39,7 +39,7 @@ code {
 
 .text,
 .text2 {
-	font-family: "Roboto Condensed", sans-serif;
+	/* font-family: "Roboto Condensed", sans-serif; */
 	font-size: 22px;
 	letter-spacing: 8px;
 	line-height: 32px;

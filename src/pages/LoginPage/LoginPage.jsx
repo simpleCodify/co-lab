@@ -11,7 +11,6 @@ class LoginPage extends Component {
 
 	handleChange = e => {
 		this.setState({
-			// Using ES2015 Computed Property Names
 			[e.target.name]: e.target.value
 		});
 	};
@@ -20,19 +19,16 @@ class LoginPage extends Component {
 		e.preventDefault();
 		try {
 			await userService.login(this.state);
-			// Let <App> know a user has signed up!
 			this.props.handleSignupOrLogin();
-			// Successfully signed up - show Home Page
 			this.props.history.push("/");
 		} catch (err) {
-			// Use a modal or toast in your apps instead of alert
 			alert("Invalid Credentials!");
 		}
 	};
 
 	render() {
 		return (
-			<div className="LoginPage">
+			<div className="LoginPage mx-auto my-5">
 				<header className="header-footer">Log In</header>
 				<form className="form-horizontal" onSubmit={this.handleSubmit}>
 					<div className="form-group">
@@ -48,7 +44,9 @@ class LoginPage extends Component {
 					<div className="form-group">
 						<div className="col-sm-12 text-center">
 							<button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
-							<Link to="/">Cancel</Link>
+							<Link className="rr_link" to="/">
+								Cancel
+							</Link>
 						</div>
 					</div>
 				</form>
