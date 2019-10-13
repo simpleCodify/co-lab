@@ -81,7 +81,7 @@ class AddProjectPage extends Component {
 								<Form.Row>
 									<Form.Group as={Col}>
 										<Form.Label>Github Repository</Form.Label>
-										<Form.Control placeholder="Github Link" value={this.state.formData.github_link} name="github_link" onChange={this.handleChange} />
+										<Form.Control placeholder="Github Link" value={this.state.formData.project_github_link} name="project_github_link" onChange={this.handleChange} />
 									</Form.Group>
 
 									<Form.Group as={Col}>

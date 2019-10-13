@@ -72,7 +72,6 @@ class App extends Component {
 	};
 
 	async componentDidMount() {
-		console.log("AMAAAAAAAR");
 		const userid = this.state.user._id;
 		const projects = await projectAPI.getAllProjects();
 		Axios.get(`/api/users/${userid}`)

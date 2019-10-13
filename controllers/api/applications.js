@@ -29,16 +29,9 @@ async function detail(req, res) {
 
 async function appApprove(req, res) {
 	let currentApp = await Application.findById(req.params.id);
-	let applicant = await User.findByIdAndUpdate(
-		currentApp.applicant,
-		{
-			$push: { current_projects: currentApp.target_project }
-		},
-		function(err) {
-			if (err) console.log(err);
-			return;
-		}
-	);
+	let applicant = await User.findByIdAndUpdate(currentApp.applicant, { $push: { current_projects: currentApp.target_project } }, { new: true, upsert: true }, function(err) {
+		if (err) console.log(err);
+	});
 	let project = await Project.findByIdAndUpdate(
 		currentApp.target_project,
 		{

@@ -73,21 +73,33 @@ export default class ProjectDetails extends Component {
 											<p className="mb-0 text-truncated">{this.state.project.project_description}</p>
 											{this.state.project !== "" ? <p className="mb-0 text-truncated text-muted">created by {this.state.project.project_owner.username}</p> : "Loading..."}
 											<p className="my-5"></p>
-											<Badge className="mr-2" pill variant="dark">
-												<a className="rr_link2" href={this.state.project.project_github_link}>
-													github
-												</a>
-											</Badge>
-											<Badge className="mr-2" pill variant="info">
-												<a className="rr_link2" href={this.state.project.project_slack_link}>
-													slack
-												</a>
-											</Badge>
-											<Badge className="mr-2" pill variant="info">
-												<a className="rr_link2" href={this.state.project.project_trello_link}>
-													trello
-												</a>
-											</Badge>
+											{this.state.project.project_github_link !== "" ? (
+												<Badge className="mr-2" pill variant="dark">
+													<a className="rr_link2" href={this.state.project.project_github_link}>
+														github
+													</a>
+												</Badge>
+											) : (
+												""
+											)}
+											{this.state.project.project_slack_link !== "" ? (
+												<Badge className="mr-2" pill variant="info">
+													<a className="rr_link2" href={this.state.project.project_slack_link}>
+														slack
+													</a>
+												</Badge>
+											) : (
+												""
+											)}
+											{this.state.project.project_trello_link !== "" ? (
+												<Badge className="mr-2" pill variant="info">
+													<a className="rr_link2" href={this.state.project.project_trello_link}>
+														trello
+													</a>
+												</Badge>
+											) : (
+												""
+											)}
 										</div>
 									</Row>
 									<Accordion className="my-5">
