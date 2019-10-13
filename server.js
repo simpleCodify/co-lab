@@ -6,8 +6,6 @@ const favicon = require("serve-favicon");
 const cors = require("cors");
 const logger = require("morgan");
 
-const PORT = 3001;
-
 // Loading environment variables
 require("dotenv").config();
 // Database Connect
@@ -35,6 +33,8 @@ app.get("/*", function(req, res) {
 	res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
-app.listen(PORT, function() {
-	console.log("Express Server is running on Port: " + PORT);
+const port = process.env.PORT || 3001;
+
+app.listen(port, function() {
+	console.log(`Express Running on port ${port}`);
 });
