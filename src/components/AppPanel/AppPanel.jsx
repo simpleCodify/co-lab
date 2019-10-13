@@ -1,14 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-
-import "./AppPanel.css";
 
 const AppPanel = props => {
 	return (
@@ -23,14 +19,14 @@ const AppPanel = props => {
 									<p className="mx-0 text-truncated lead">{props.applicant.role}</p>
 									<p className="my-5">
 										<Badge className="mr-3" pill variant="dark">
-											<Link className="rr_link2" to={props.applicant.github_link}>
+											<a className="rr_link2" href={props.applicant.github_link}>
 												github
-											</Link>
+											</a>
 										</Badge>
 										<Badge pill variant="info">
-											<Link className="rr_link2" to={props.applicant.linkedin_link}>
+											<a className="rr_link2" href={props.applicant.linkedin_link}>
 												LinkedIn
-											</Link>
+											</a>
 										</Badge>
 									</p>
 									<h3 className="mb-0">{props.applicant.current_projects.length}</h3>

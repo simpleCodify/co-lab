@@ -28,9 +28,12 @@ async function detail(req, res) {
 }
 
 async function posdetail(req, res) {
-	const posdetail = await Position.findById(req.params.id);
-	console.log(posdetail);
-	res.status(200).json(posdetail);
+	const posdetail = await Position.findById(req.params.id).populate("user");
+	console.log("INSIDE THE PROJECT CONTROLLER POSITION DETAILS").exec((err, position) => {
+		res.status(200).json(position);
+	});
+	// console.log(posdetail);
+	// res.status(200).json(posdetail);
 }
 
 async function create(req, res) {

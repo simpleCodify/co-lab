@@ -12,11 +12,15 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-/*----- Page Views -----*/
-.profileview {
-	height: 100%;
+/*----- Window Border Section -----*/
+.light-border {
+	border: 2px solid #5588a375;
 }
-/*----- End Page Views -----*/
+
+.app-panel {
+	border-radius: 25px;
+}
+/*----- End Window Border Section -----*/
 
 /*----- HR Line -----*/
 .line-under {

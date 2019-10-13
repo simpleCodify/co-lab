@@ -32,8 +32,8 @@ class ProfileForm extends Component {
 
 	render() {
 		return (
-			<div className="col-md-6 my-5 mx-auto text-center profile-form">
-				<p className="my-5 lead">Edit your Profile</p>
+			<div className="col-md-6 my-5 mx-auto text-center profile-form light-border">
+				<p className="mt-5 lead">Edit your Profile</p>
 				<Form className="my-5" onSubmit={this.handleSubmit}>
 					<Form.Row className="my-5">
 						<Form.Group as={Col}>

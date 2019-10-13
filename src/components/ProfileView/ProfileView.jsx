@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import ColabButton from "../CoLabButton/CoLabButton";
 
 import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
@@ -13,7 +12,7 @@ const ProfileView = props => {
 		<Container className="align-middle" style={{ height: "80vh" }}>
 			<Row className="mt-5">
 				<div className="col-8 mx-auto">
-					<Card className="app-panel align-middle">
+					<Card className="app-panel align-middle light-border">
 						<Card.Body>
 							<Row>
 								<div className="col-12 col-lg-8 col-md-6 text-left">
@@ -22,14 +21,14 @@ const ProfileView = props => {
 									<p className="mb-0 text-truncated lead">{props.user.role}</p>
 									<p className="my-5">
 										<Badge className="mr-3" pill variant="dark">
-											<Link className="rr_link2" to={props.user.github_link}>
+											<a className="rr_link2" href={props.user.github_link}>
 												github
-											</Link>
+											</a>
 										</Badge>
 										<Badge pill variant="info">
-											<Link className="rr_link2" to={props.user.linkedin_link}>
+											<a className="rr_link2" href={props.user.linkedin_link}>
 												LinkedIn
-											</Link>
+											</a>
 										</Badge>
 									</p>
 									<h3 className="mb-0">{props.user.current_projects.length}</h3>
