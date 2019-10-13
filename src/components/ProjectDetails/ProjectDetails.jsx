@@ -73,7 +73,7 @@ export default class ProjectDetails extends Component {
 											<p className="mb-0 text-truncated">{this.state.project.project_description}</p>
 											{this.state.project !== "" ? <p className="mb-0 text-truncated text-muted">created by {this.state.project.project_owner.username}</p> : "Loading..."}
 											<p className="my-5"></p>
-											{this.state.project.project_github_link !== "" ? (
+											{this.state.project.project_github_link !== null ? (
 												<Badge className="mr-2" pill variant="dark">
 													<a className="rr_link2" href={this.state.project.project_github_link}>
 														github
@@ -82,8 +82,8 @@ export default class ProjectDetails extends Component {
 											) : (
 												""
 											)}
-											{this.state.project.project_slack_link !== "" ? (
-												<Badge className="mr-2" pill variant="info">
+											{this.state.project.project_slack_link !== null ? (
+												<Badge className="mr-2" pill variant="warning">
 													<a className="rr_link2" href={this.state.project.project_slack_link}>
 														slack
 													</a>
@@ -91,7 +91,7 @@ export default class ProjectDetails extends Component {
 											) : (
 												""
 											)}
-											{this.state.project.project_trello_link !== "" ? (
+											{this.state.project.project_trello_link !== null ? (
 												<Badge className="mr-2" pill variant="info">
 													<a className="rr_link2" href={this.state.project.project_trello_link}>
 														trello
