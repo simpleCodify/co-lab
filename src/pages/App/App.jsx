@@ -1,20 +1,26 @@
 import React, { Component } from "react";
+
+// Importing React-Router-Dom
 import { Route, Switch } from "react-router-dom";
+
+// Importing Components
+import ProfileView from "../../components/ProfileView/ProfileView";
 import NavBar from "../../components/NavBar/NavBar.jsx";
-import HomePage from "../HomePage/HomePage.jsx";
-import UserPortal from "../UserPortal/UserPortal";
+import ProfileForm from "../../components/ProfileForm/ProfileForm";
+import ProjectDetails from "../../components/ProjectDetails/ProjectDetails";
+
+// Importing Pages
+import ApplicationManager from "../ApplicationManager/ApplicationManager";
 import AddProjectPage from "../AddProjectPage/AddProjectPage";
 import ProjectListPage from "../ProjectListPage/ProjectListPage";
+import HomePage from "../HomePage/HomePage.jsx";
+import UserPortal from "../UserPortal/UserPortal";
 
-import ProfileView from "../../components/ProfileView/ProfileView";
-import ProfileForm from "../../components/ProfileForm/ProfileForm";
-
-import ProjectDetails from "../../components/ProjectDetails/ProjectDetails";
-import ApplicationManager from "../ApplicationManager/ApplicationManager";
-
+// Importing Services API
 import * as projectAPI from "../../utils/projectService";
-
 import userService from "../../utils/userService.js";
+
+// Importing Axios
 import Axios from "axios";
 
 class App extends Component {

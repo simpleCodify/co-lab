@@ -1,8 +1,8 @@
 import React from "react";
 
+// Importing React-Bootstrap Components
 import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 

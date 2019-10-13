@@ -1,16 +1,12 @@
 import React, { Component } from "react";
-import "./AddProjectPage";
-import Button from "react-bootstrap/Button";
+
+// Importing React-Bootstrap Components
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
-
-import "./AddProjectPage.css";
-
-import userService from "../../utils/userService";
 
 class AddProjectPage extends Component {
 	state = {
@@ -29,7 +25,6 @@ class AddProjectPage extends Component {
 		e.preventDefault();
 		try {
 			await this.props.handleAddProject(this.state.formData);
-			// Is it possible to redirect to new project detail from history?
 			this.props.history.push("/projects");
 		} catch (err) {
 			console.log(err);

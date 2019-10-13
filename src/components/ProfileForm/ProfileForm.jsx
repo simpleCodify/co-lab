@@ -1,12 +1,13 @@
 import React, { Component } from "react";
+
+// Importing React-Bootstrap Components
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
-
-import userService from "../../utils/userService";
 import Card from "react-bootstrap/Card";
 
-import "./ProfileForm.css";
+// Importing Services API
+import userService from "../../utils/userService";
 
 class ProfileForm extends Component {
 	state = {

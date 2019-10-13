@@ -1,6 +1,10 @@
 import React from "react";
-import CardContainer from "../../components/CardContainer/CardContainer";
+
+// Importing React-Router-Dom
 import { Link } from "react-router-dom";
+
+// Importing Components
+import CardContainer from "../../components/CardContainer/CardContainer";
 
 const ProjectListPage = props => {
 	return (

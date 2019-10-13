@@ -1,6 +1,9 @@
 import React from "react";
+
+// Importing React-Router-Dom
 import { Link, useRouteMatch } from "react-router-dom";
 
+// Importing React-Bootstrap Components
 import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
@@ -39,7 +42,7 @@ const ProfileView = props => {
 										<svg height="35" width="200">
 											<rect className="mx-auto my-auto shape" height="35" width="200" />
 										</svg>
-										<Link className="text rr_link mx-auto my-auto" to={`${url}/edit`}>
+										<Link className="text4 rr_link mx-auto my-auto" to={`${url}/edit`}>
 											Edit
 										</Link>
 									</div>

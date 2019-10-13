@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+
+// Importing React-Router-Dom
 import { Route, Switch } from "react-router-dom";
+
+// Importing Components
 import PositionPanel from "../../components/PositionPanel/PositionPanel";
 import PositionDetails from "../PositionDetails/PositionDetails";
 

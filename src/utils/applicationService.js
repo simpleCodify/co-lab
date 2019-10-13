@@ -1,7 +1,6 @@
 import tokenService from "./tokenService";
 
 const BASE_URL = "/api/applications/";
-const SPECIFIC_URL = "/api/applications/:id";
 
 export function getAllApplications() {
 	return fetch(BASE_URL).then(res => res.json());
@@ -14,7 +13,7 @@ export function getPosApplications(id) {
 export function appApprove(app) {
 	console.log(app);
 	let application = { _id: `${app}` };
-	return fetch(`${BASE_URL}` + `${app}` + `/approve`, {
+	return fetch(`${BASE_URL}${app}/approve`, {
 		method: "PUT",
 		headers: { "content-type": "application/json" },
 		body: JSON.stringify(application)
@@ -24,7 +23,7 @@ export function appApprove(app) {
 export function appReject(app) {
 	console.log(app);
 	let application = { _id: `${app}` };
-	return fetch(`${BASE_URL}` + `${app}` + `/reject`, {
+	return fetch(`${BASE_URL}${app}/reject`, {
 		method: "PUT",
 		headers: { "content-type": "application/json" },
 		body: JSON.stringify(application)

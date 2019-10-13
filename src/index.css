@@ -12,6 +12,12 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/*----- Navbar Customs -----*/
+.navbar {
+	color: #00334e;
+}
+/*----- End Navbar Customs -----*/
+
 /*----- Window Border Section -----*/
 .light-border {
 	border: 2px solid #5588a375;
@@ -19,6 +25,18 @@ code {
 
 .app-panel {
 	border-radius: 25px;
+}
+
+.add-project-panel {
+	background-color: #7ca2b6;
+	color: #e8e8e8;
+	border-radius: 30px;
+}
+
+.profile-form {
+	border-radius: 25px;
+	background-color: white;
+	border: 2px solid #5588a375;
 }
 /*----- End Window Border Section -----*/
 
@@ -59,7 +77,16 @@ code {
 
 .text3 {
 	font-size: 16px;
+	letter-spacing: 2px;
 	line-height: 26px;
+	position: relative;
+	top: -32px;
+	color: black;
+}
+
+.text4 {
+	font-size: 21px;
+	letter-spacing: 2px;
 	position: relative;
 	top: -32px;
 	color: black;

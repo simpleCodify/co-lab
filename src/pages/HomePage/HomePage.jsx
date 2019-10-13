@@ -1,8 +1,7 @@
 import React from "react";
-import ColabButton from "../../components/CoLabButton/CoLabButton.jsx";
-import { Link } from "react-router-dom";
 
-import "./HomePage.css";
+// Importing Components
+import ColabButton from "../../components/CoLabButton/CoLabButton.jsx";
 
 const HomePage = props => {
 	return (

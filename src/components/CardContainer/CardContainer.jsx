@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+
+// Importing Components
 import CardPanel from "../CardPanel/CardPanel";
+
+// Importing React-Bootstrap Components
 import Accordion from "react-bootstrap/Accordion";
 
 class CardContainer extends Component {

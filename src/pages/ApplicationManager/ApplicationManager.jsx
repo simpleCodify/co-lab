@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+
+// Importing Components
 import AppPanel from "../../components/AppPanel/AppPanel";
+
+// Importing Services API
 import * as applicationAPI from "../../utils/applicationService";
 
 class ApplicationManager extends Component {

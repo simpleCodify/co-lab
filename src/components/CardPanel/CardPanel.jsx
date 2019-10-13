@@ -1,13 +1,11 @@
 import React from "react";
+
+// Importing React-Router-Dom
 import { Link } from "react-router-dom";
 
-import Badge from "react-bootstrap/Badge";
+// Importing React-Bootstrap Components
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Accordion from "react-bootstrap/Accordion";
-
-import "./CardPanel.css";
 
 const CardPanel = props => {
 	return (
@@ -25,10 +23,10 @@ const CardPanel = props => {
 						<Card.Title>Project Leader: {props.owner}</Card.Title>
 						<Card.Text>{props.desc}</Card.Text>
 						<Card.Subtitle>
-							Project Members: <p>{props.members !== "" ? props.members.map(member => <small>{member.username}</small>) : "Loading..."}</p>
+							Project Members: <p>{props.members !== "" ? props.members.map(member => <small> {member.username} </small>) : "Loading..."}</p>
 						</Card.Subtitle>
 						<br />
-						<Card.Subtitle>{props.team_size}</Card.Subtitle>
+						<Card.Subtitle>{props.team_size - props.members.length} Positions Available</Card.Subtitle>
 						<Card.Link>
 							<Link className="rr_link" to={`/projects/${props.id}`}>
 								Details
