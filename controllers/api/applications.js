@@ -39,9 +39,13 @@ async function appApprove(req, res) {
 			return;
 		}
 	);
-	let project = await Project.findByIdAndUpdate(currentApp.target_project, {
-		$push: { project_members: currentApp.applicant }
-	});
+	let project = await Project.findByIdAndUpdate(
+		currentApp.target_project,
+		{
+			$push: { project_members: currentApp.applicant }
+		},
+		{ new: true, upsert: true }
+	);
 	let position = await project.positions.id(currentApp.target_position);
 	position.user = currentApp.applicant;
 	position.status = "Filled";

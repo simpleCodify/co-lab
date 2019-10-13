@@ -6,8 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 ReactDOM.render(
-	<Router>
+	<Router forceRefresh={true}>
 		{/* <Route component={App} /> */}
+		{/* <App /> */}
 		<Route render={({ history }) => <App history={history} />} />
 	</Router>,
 	document.getElementById("root")

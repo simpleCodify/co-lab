@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import userService from "../../utils/userService";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
@@ -61,7 +60,7 @@ class UserPortal extends Component {
 				<div className="col-md-3 mx-auto my-5">
 					<Accordion>
 						<Accordion.Toggle as={Card.Header} eventKey="signup" style={{ backgroundColor: "#5588a3" }}>
-							<Card.Title>Sign Up</Card.Title>
+							<Card.Title style={{ color: "white" }}>Sign Up</Card.Title>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="signup">
 							<Form onSubmit={this.handleSignupSubmit}>
@@ -89,7 +88,7 @@ class UserPortal extends Component {
 							</Form>
 						</Accordion.Collapse>
 						<Accordion.Toggle as={Card.Header} eventKey="login" style={{ backgroundColor: "#5588a3" }}>
-							<Card.Title>Login</Card.Title>
+							<Card.Title style={{ color: "white" }}>Login</Card.Title>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="login">
 							<Form onSubmit={this.handleLoginSubmit}>

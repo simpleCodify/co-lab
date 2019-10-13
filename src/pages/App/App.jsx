@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import HomePage from "../HomePage/HomePage.jsx";
-// import SignupPage from "../SignupPage/SignupPage";
-// import LoginPage from "../LoginPage/LoginPage";
 import UserPortal from "../UserPortal/UserPortal";
 import AddProjectPage from "../AddProjectPage/AddProjectPage";
 import ProjectListPage from "../ProjectListPage/ProjectListPage";
@@ -123,7 +121,8 @@ class App extends Component {
 					{/* <Route path="/projects/position/:id" component={PositionDetails} /> */}
 
 					{/* Application Routes */}
-					<Route path="/application/:id" component={ApplicationManager} />
+					<Route path="/application/:id" component={ApplicationManager} history={this.history} />
+					{/* <Route path="/application/:id" render={({ history }) => <ApplicationManager history={history} />} /> */}
 
 					{/* User Signup / Login Routes */}
 					<Route path="/portal" render={({ history }) => <UserPortal history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />

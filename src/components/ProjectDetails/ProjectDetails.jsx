@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import Axios from "axios";
 import { Route, Switch } from "react-router-dom";
 import PositionPanel from "../../components/PositionPanel/PositionPanel";
 import PositionDetails from "../PositionDetails/PositionDetails";
+
+// Importing React-Bootstrap Components
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
 
+// Importing Services APIs
 import userService from "../../utils/userService.js";
 import * as applicationAPI from "../../utils/applicationService";
 import * as projectAPI from "../../utils/projectService";
@@ -18,25 +20,14 @@ export default class ProjectDetails extends Component {
 		target_position: ""
 	};
 
-	// componentDidMount() {
-	// 	const id = this.props.match.params.id;
-	// 	Axios.get(`/api/projects/${id}`).then(res => {
-	// 		const project = res.data;
-	// 		this.setState({ project });
-	// 	});
-	// }
-
 	async componentDidMount() {
 		const id = this.props.match.params.id;
 		const project = await projectAPI.getProjectDetails(id);
 		this.setState({ project: project, positions: project.positions });
-
-		// const { data } = await Axios.get(`/api/projects/${id}`);
-		// this.setState({ project: data, positions: data.positions });
 	}
 
 	handleAddApplication = async newAppData => {
-		const newApplication = await applicationAPI.create(newAppData);
+		await applicationAPI.create(newAppData);
 	};
 
 	handleApplyClick = e => {

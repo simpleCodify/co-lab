@@ -47,6 +47,14 @@ code {
 	top: -32px;
 }
 
+.text3 {
+	font-size: 16px;
+	line-height: 26px;
+	position: relative;
+	top: -32px;
+	color: black;
+}
+
 .text {
 	color: black;
 }
@@ -76,13 +84,17 @@ code {
 
 /* React Router Link */
 .rr_link:link,
-.rr_link2:link,
-.rr_link:hover {
+.rr_link:hover,
+.rr_link:visited,
+.rr_link:active {
 	text-decoration: none;
 	color: black;
 }
 
-.rr_link2:hover {
+.rr_link2:link,
+.rr_link2:hover,
+.rr_link2:visited,
+.rr_link2:active {
 	text-decoration: none;
 	color: white;
 }
