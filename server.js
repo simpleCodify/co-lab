@@ -6,7 +6,7 @@ const favicon = require("serve-favicon");
 const cors = require("cors");
 const logger = require("morgan");
 
-const PORT = 4000;
+const PORT = 3001;
 
 // Loading environment variables
 require("dotenv").config();
