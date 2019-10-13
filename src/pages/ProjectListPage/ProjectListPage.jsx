@@ -1,7 +1,6 @@
 import React from "react";
 import CardContainer from "../../components/CardContainer/CardContainer";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 
 const ProjectListPage = props => {
 	return (

@@ -7,7 +7,7 @@ const ColabButton = props => {
 			<svg height="35" width="200">
 				<rect className="mx-auto my-auto shape" height="35" width="200" />
 			</svg>
-			<Link className="text2 rr_link2 mx-auto my-auto" to={props.linkto}>
+			<Link className="text2 rr_link mx-auto my-auto" to={props.linkto}>
 				{props.btnname}
 			</Link>
 		</div>

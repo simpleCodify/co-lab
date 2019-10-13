@@ -12,6 +12,12 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
+/*----- Page Views -----*/
+.profileview {
+	height: 100%;
+}
+/*----- End Page Views -----*/
+
 /*----- HR Line -----*/
 .line-under {
 	border: 2px solid #5588a3;

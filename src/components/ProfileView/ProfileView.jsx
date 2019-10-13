@@ -1,44 +1,56 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import Button from "react-bootstrap/Button";
+import ColabButton from "../CoLabButton/CoLabButton";
+
+import Badge from "react-bootstrap/Badge";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 const ProfileView = props => {
 	let { url } = useRouteMatch();
-
 	return (
-		<>
-			<div className="mx-5 my-5">
-				<Link to={`${url}/edit`}>
-					<Button className="btn-sm">Edit Profile</Button>
-				</Link>
-			</div>
-
-			<div className="col-md-6 mx-auto">
-				<h1>Profile Viewing</h1>
-				<hr />
-
-				<h4>{props.user.name}</h4>
-				<h5>{props.user.email}</h5>
-
-				<Card>
-					<Card.Header>
-						<Card.Title>{props.user.username}</Card.Title>
-						<Card.Text>{props.user.name}</Card.Text>
-						<Card.Subtitle>{props.user.role}</Card.Subtitle>
-					</Card.Header>
-
-					<Card.Body></Card.Body>
-
-					<Card.Footer>
-						<Card.Link href={props.user.github_link}>Github</Card.Link>
-						<Card.Link href={props.user.linkedin_link}>LinkedIn</Card.Link>
-					</Card.Footer>
-				</Card>
-
-				{/* <ul>{currProj}</ul> */}
-			</div>
-		</>
+		<Container className="align-middle" style={{ height: "80vh" }}>
+			<Row className="mt-5">
+				<div className="col-8 mx-auto">
+					<Card className="app-panel align-middle">
+						<Card.Body>
+							<Row>
+								<div className="col-12 col-lg-8 col-md-6 text-left">
+									<h3 className="mb-0 text-truncated">{props.user.name}</h3>
+									<p className="mb-0 text-truncated text-muted">"{props.user.username}"</p>
+									<p className="mb-0 text-truncated lead">{props.user.role}</p>
+									<p className="my-5">
+										<Badge className="mr-3" pill variant="dark">
+											<Link className="rr_link2" to={props.user.github_link}>
+												github
+											</Link>
+										</Badge>
+										<Badge pill variant="info">
+											<Link className="rr_link2" to={props.user.linkedin_link}>
+												LinkedIn
+											</Link>
+										</Badge>
+									</p>
+									<h3 className="mb-0">{props.user.current_projects.length}</h3>
+									<small>Current Projects</small>
+								</div>
+								<div className="col-12 col-lg-3 col-md-5">
+									<div className="svg-wrapper mx-auto my-5 text-center">
+										<svg height="35" width="200">
+											<rect className="mx-auto my-auto shape" height="35" width="200" />
+										</svg>
+										<Link className="text rr_link mx-auto my-auto" to={`${url}/edit`}>
+											Edit
+										</Link>
+									</div>
+								</div>
+							</Row>
+						</Card.Body>
+					</Card>
+				</div>
+			</Row>
+		</Container>
 	);
 };
 

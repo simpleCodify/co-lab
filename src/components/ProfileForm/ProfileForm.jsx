@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import Accordion from "react-bootstrap/Accordion";
 
 import userService from "../../utils/userService";
 import Card from "react-bootstrap/Card";
+
+import "./ProfileForm.css";
 
 class ProfileForm extends Component {
 	state = {
@@ -24,7 +25,6 @@ class ProfileForm extends Component {
 			await userService.updateProfile(this.state);
 			this.props.handleUpdateUser(this.state.user);
 			this.props.history.goBack();
-			// this.props.history.push("/");
 		} catch (err) {
 			console.log(err);
 		}
@@ -32,11 +32,10 @@ class ProfileForm extends Component {
 
 	render() {
 		return (
-			<div className="col-md-6 my-5 mx-auto text-center">
-				<h1> Profile Edit </h1>
-				<p>Edit your Profile</p>
-				<Form onSubmit={this.handleSubmit}>
-					<Form.Row>
+			<div className="col-md-6 my-5 mx-auto text-center profile-form">
+				<p className="my-5 lead">Edit your Profile</p>
+				<Form className="my-5" onSubmit={this.handleSubmit}>
+					<Form.Row className="my-5">
 						<Form.Group as={Col}>
 							<Form.Label as={Card.Header}>Username</Form.Label>
 							<Form.Control type="username" placeholder="Username" value={this.state.username} name="username" onChange={this.handleChange} />
@@ -58,18 +57,18 @@ class ProfileForm extends Component {
 					</Form.Row>
 
 					<hr />
-					<Accordion>
+					<Accordion className="my-5">
 						<Accordion.Toggle as={Card.Header} eventKey="links">
 							<Card.Title>Various Links</Card.Title>
 						</Accordion.Toggle>
 						<Accordion.Collapse eventKey="links">
-							<Form.Row>
-								<Form.Group as={Col}>
+							<Form.Row className="">
+								<Form.Group className="my-5" as={Col}>
 									<Form.Label>Github Profile</Form.Label>
 									<Form.Control type="Url" placeholder="Github Link" value={this.state.github_link} name="github_link" onChange={this.handleChange} />
 								</Form.Group>
 
-								<Form.Group as={Col}>
+								<Form.Group className="my-5" as={Col}>
 									<Form.Label>LinkedIn Profile</Form.Label>
 									<Form.Control type="Url" placeholder="LinkedIn Link" value={this.state.linkedin_link} name="linkedin_link" onChange={this.handleChange} />
 								</Form.Group>
@@ -77,9 +76,14 @@ class ProfileForm extends Component {
 						</Accordion.Collapse>
 					</Accordion>
 
-					<Button className="my-5" variant="outline-info" type="submit">
-						Submit
-					</Button>
+					<div className="svg-wrapper mx-auto my-5 text-center">
+						<svg height="35" width="200">
+							<rect className="mx-auto my-auto shape" height="35" width="200" />
+						</svg>
+						<button className="text3 rr_link mx-auto my-auto" type="submit">
+							Apply
+						</button>
+					</div>
 				</Form>
 			</div>
 		);

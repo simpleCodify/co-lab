@@ -90,29 +90,8 @@ class App extends Component {
 					<Route exact path="/" render={({ history }) => <HomePage history={history} user={this.state.user} />} />
 
 					{/* Profile Routes */}
-					<Route exact path="/profile/:id">
-						<ProfileView user={this.state.user} />
-					</Route>
-
+					<Route exact path="/profile/:id" render={({ history }) => <ProfileView history={history} user={this.state.user} />} />
 					<Route path="/profile/:id/edit" render={({ history }) => <ProfileForm history={history} user={this.state.user} handleUpdateUser={this.handleUpdateUser} />} />
-
-					{/* <Route path="/profile/:id/edit">
-						<ProfileForm user={this.state.user} />
-					</Route> */}
-
-					{/* Project Routes
-					<Route path="/projects/add">
-						<AddProjectPage handleAddProject={this.handleAddProject} user={this.state.user} />
-					</Route>
-					<Route path="/projects/:id">
-						<ProjectDetails user={this.state.user} handleAddApplication={this.handleAddApplication} />
-					</Route>
-					<Route exact path="/projects/">
-						<ProjectListPage user={this.state.user} projects={this.state.projects} />
-					</Route>
-					<Route path="/projects/position/:id">
-						<PositionDetails />
-					</Route> */}
 
 					{/* Alt Project Routes with History */}
 					<Route exact path="/projects/" render={({ history }) => <ProjectListPage history={history} user={this.state.user} projects={this.state.projects} />} />
