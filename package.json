@@ -18,6 +18,7 @@
 		"react-dom": "^16.10.1",
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.1.2",
+		"react-scroll-parallax": "^2.2.0",
 		"serve-favicon": "^2.5.0"
 	},
 	"scripts": {

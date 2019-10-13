@@ -29,6 +29,7 @@ async function detail(req, res) {
 
 async function posdetail(req, res) {
 	const posdetail = await Position.findById(req.params.id);
+	console.log(posdetail);
 	res.status(200).json(posdetail);
 }
 

@@ -81,33 +81,14 @@ class App extends Component {
 				});
 			})
 			.catch(err => console.log(err));
-		// this.setState({ projects: projects });
 	}
-
-	// async componentDidUpdate(prevProps) {
-	// 	const userid = this.state.user._id;
-	// 	const dbprojects = await projectAPI.getAllProjects();
-	// 	let dbuser;
-
-	// 	await Axios.get(`/api/users/${userid}`)
-	// 		.then(response => {
-	// 			dbuser = JSON.stringify(response.data);
-	// 		})
-	// 		.catch(err => console.log(err));
-	// 	console.log("IS THIS DBUSER THINGY A STRING??? :: ", dbuser);
-	// 	// let projects = JSON.stringify(this.state.projects);
-	// 	let user = JSON.stringify(this.state.user);
-	// 	// Typical usage (don't forget to compare props):
-	// 	if (user !== dbuser || dbprojects !== this.state.projects) {
-	// 		let newUser = JSON.parse(dbuser);
-	// 		this.setState({ user: newUser, projects: dbprojects });
-	// 	}
-	// }
 
 	render() {
 		return (
 			<div className="text-center">
 				<NavBar user={this.state.user} handleLogout={this.handleLogout} />
+				<hr className="col-md-8 mx-auto line-under" />
+
 				<Switch>
 					{/* Home Route */}
 					<Route exact path="/" render={({ history }) => <HomePage history={history} user={this.state.user} />} />
@@ -140,8 +121,8 @@ class App extends Component {
 					{/* Alt Project Routes with History */}
 					<Route exact path="/projects/" render={({ history }) => <ProjectListPage history={history} user={this.state.user} projects={this.state.projects} />} />
 					<Route exact path="/projects/add" render={({ history }) => <AddProjectPage history={history} handleAddProject={this.handleAddProject} user={this.state.user} />} />
-					<Route path="/projects/position/:id" component={PositionDetails} />
 					<Route path="/projects/:id" component={ProjectDetails} user={this.state.user} handleAddApplication={this.handleAddApplication} />
+					{/* <Route path="/projects/position/:id" component={PositionDetails} /> */}
 
 					{/* Application Routes */}
 					<Route path="/application/:id" component={ApplicationManager} />

@@ -1,13 +1,231 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	height: 100vh;
+	background-color: #e8e8e8;
+	margin: 0;
+	font-family: "Comfortaa", cursive;
+	/* font-family: "Roboto Condensed", sans-serif; */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
+
+/*----- HR Line -----*/
+.line-under {
+	border: 2px solid #5588a3;
+	border-radius: 5px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+/*----- End HR Line -----*/
+
+/*----- Collaboration Button Section -----*/
+.svg-wrapper {
+	height: 35px;
+	position: relative;
+	width: 250px;
+	transform: translateY(-50%);
+}
+
+.shape {
+	fill: transparent;
+	stroke-dasharray: 140 540;
+	stroke-dashoffset: -270;
+	stroke-width: 8px;
+	stroke: #5588a3;
+}
+
+.text,
+.text2 {
+	font-family: "Roboto Condensed", sans-serif;
+	font-size: 22px;
+	letter-spacing: 8px;
+	line-height: 32px;
+	position: relative;
+	top: -32px;
+}
+
+.text {
+	color: black;
+}
+
+.text2 {
+	color: white;
+}
+
+@keyframes draw {
+	0% {
+		stroke-dasharray: 140 540;
+		stroke-dashoffset: -270;
+		stroke-width: 8px;
+	}
+	100% {
+		stroke-dasharray: 760;
+		stroke-dashoffset: 0;
+		stroke-width: 2px;
+	}
+}
+
+.svg-wrapper:hover .shape {
+	-webkit-animation: 0.5s draw linear forwards;
+	animation: 0.65s draw linear forwards;
+}
+/*----- End Collaboration Button -----*/
+
+/* React Router Link */
+.rr_link:link,
+.rr_link2:link,
+.rr_link:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.rr_link2:hover {
+	text-decoration: none;
+	color: white;
+}
+/*----- End React Router Link -----*/
+
+/*----- Text-Gradient -----*/
+.font-gradient {
+	animation: TextGradient 6s ease infinite;
+	background: linear-gradient(270deg, #e55d87, #5fc3e4, #e6dbff);
+	background-size: 600%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	width: 100%;
+}
+
+@-webkit-keyframes TextGradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@-moz-keyframes TextGradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@keyframes TextGradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/*----- End Text-Gradient -----*/
+
+/*----- HomePage Parallax -----*/
+
+.wrapper {
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: auto;
+	perspective: 1px;
+	background-color: #e8e8e8;
+}
+
+.section,
+.section1,
+.section2,
+.section3 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.font-black {
+	color: black;
+}
+
+.section {
+	height: 100vh;
+}
+
+.section1 {
+	height: 50vh;
+}
+
+.section2 {
+	height: 60vh;
+}
+
+.section3 {
+	height: 40vh;
+}
+
+.parallax::after {
+	content: " ";
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transform: translateZ(-1px) scale(2);
+	background-size: 100%;
+	z-index: -1;
+}
+
+.static {
+	background-color: rgba(44, 44, 44, 0.9);
+}
+
+.bg1::after {
+	background-image: url("https://i.imgur.com/4X9LlXV.png");
+	background-repeat: no-repeat;
+}
+
+.bg2::after {
+	background-image: url("https://i.imgur.com/KN6Wlmh.png");
+	background-repeat: no-repeat;
+}
+
+.bg3::after {
+	background-image: url("https://i.imgur.com/wxFUVXn.png");
+	background-repeat: no-repeat;
+}
+
+/*----- End HomePage Parallax -----*/
+
+/*----- SCROLLBAR BEGONE -----*/
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent; /* make scrollbar transparent */
+}
+/*----- SCROLLBAR BEGONE -----*/
+
+/*----- Default Button Override -----*/
+button {
+	background: transparent;
+	border: none !important;
+	padding: 0;
+	height: 20px;
+	width: 180px;
+	outline: none;
+}
+
+button:focus {
+	outline: none;
+}
+/*----- End Default Button Override -----*/

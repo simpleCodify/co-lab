@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Container from "react-bootstrap/Container";
 import CardPanel from "../CardPanel/CardPanel";
 import Accordion from "react-bootstrap/Accordion";
 
@@ -11,7 +10,7 @@ class CardContainer extends Component {
 
 		return (
 			<Accordion>
-				<div>{project}</div>
+				<div className="col-md-6 mx-auto">{project}</div>
 			</Accordion>
 		);
 	}

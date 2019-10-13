@@ -8,12 +8,12 @@ import "./CardPanel.css";
 
 const CardPanel = props => {
 	return (
-		<Card>
+		<Card className="my-3">
 			<Card.Header>
-				<Accordion.Toggle as={Card.Header} eventKey={props.eventKey}>
+				<Accordion.Toggle as={Card.Header} eventKey={props.eventKey} style={{ backgroundColor: "#5588a3", color: "white" }}>
 					<h3>{props.name}</h3>
 					<hr />
-					<h5 className="text-muted">{props.desc}</h5>
+					<h5>{props.desc}</h5>
 				</Accordion.Toggle>
 			</Card.Header>
 			<Accordion.Collapse eventKey={props.eventKey}>
@@ -24,7 +24,9 @@ const CardPanel = props => {
 					<Card.Text>{props.desc}</Card.Text>
 					<Card.Subtitle>{props.team_size}</Card.Subtitle>
 					<Card.Link>
-						<Link to={`/projects/${props.id}`}>Details</Link>
+						<Link className="rr_link" to={`/projects/${props.id}`}>
+							Details
+						</Link>
 					</Card.Link>
 				</Card.Body>
 			</Accordion.Collapse>

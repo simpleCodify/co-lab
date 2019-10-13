@@ -5,6 +5,10 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Container from "react-bootstrap/Container";
+
+import "./AddProjectPage.css";
 
 import userService from "../../utils/userService";
 
@@ -42,30 +46,13 @@ class AddProjectPage extends Component {
 	render() {
 		return (
 			<>
-				<h1>Add a Project</h1>
-				{/* <form ref={this.formRef} autoComplete="off" onSubmit={this.handleSubmit}>
-					<div className="form-group">
-						<label>Project Name (required) </label>
-						<input className="form-control" name="project_name" value={this.state.formData.project_name} onChange={this.handleChange} required />
-					</div>
-					<div className="form-group">
-						<label>Project Description</label>
-						<input className="form-control" name="project_description" value={this.state.formData.project_description} onChange={this.handleChange} required />
-					</div>
-					<div className="form-group">
-						<label>Project Team Size</label>
-						<input className="form-control" name="project_team_size" value={this.state.formData.project_team_size} onChange={this.handleChange} required />
-					</div>
-
-
-					<Button type="submit" disabled={this.state.invalidForm}>
-						Create Project
-					</Button>
-				</form> */}
-
-				<div className="col-md-6 my-5 mx-auto text-center">
-					<h1> Profile Edit </h1>
-					<p>Edit your Profile</p>
+				<div className="col-md-6 my-5 mx-auto text-center add-project-panel">
+					<Jumbotron className="my-5 add-project-panel">
+						<Container style={{ color: "#ffffff" }}>
+							<h1>Start a Project!</h1>
+							<p>Let's get Started by first creating your project!</p>
+						</Container>
+					</Jumbotron>
 					<Form onSubmit={this.handleSubmit}>
 						<Form.Row>
 							<Form.Group as={Col}>
@@ -84,6 +71,8 @@ class AddProjectPage extends Component {
 									<option value={1}>1</option>
 									<option value={2}>2</option>
 									<option value={3}>3</option>
+									<option value={4}>4</option>
+									<option value={5}>5</option>
 								</Form.Control>
 							</Form.Group>
 						</Form.Row>
@@ -111,16 +100,20 @@ class AddProjectPage extends Component {
 									</Form.Group>
 
 									<Form.Group as={Col}>
-										<Form.Label>Other Links</Form.Label>
-										<Form.Control placeholder="Other Links" value={this.state.formData.project_other_links} name="project_other_links" onChange={this.handleChange} />
+										<Form.Label>Other Link</Form.Label>
+										<Form.Control placeholder="Other Link" value={this.state.formData.project_other_links} name="project_other_links" onChange={this.handleChange} />
 									</Form.Group>
 								</Form.Row>
 							</Accordion.Collapse>
 						</Accordion>
-
-						<Button className="my-5" variant="outline-info" type="submit">
-							Submit
-						</Button>
+						<div className="svg-wrapper mx-auto my-5 text-center">
+							<svg height="35" width="200">
+								<rect className="mx-auto my-auto shape" height="35" width="200" />
+							</svg>
+							<button className="text2 rr_link2 mx-auto my-auto" type="submit">
+								Submit
+							</button>
+						</div>
 					</Form>
 				</div>
 			</>

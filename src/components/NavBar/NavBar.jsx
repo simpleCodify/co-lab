@@ -6,20 +6,19 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
-import "./NavBar.css"
+import "./NavBar.css";
 
 const NavBar = props => {
 	let nav = props.user ? (
-		<Navbar className="navbar" collapseOnSelect expand="lg" >
-			<Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+		<Navbar collapseOnSelect expand="lg">
+			<Navbar.Brand href="/">co-Lab</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="mr-auto">
 					<Nav.Link href="/">Home</Nav.Link>
 					<Nav.Link href={`/profile/${props.user._id}`}>Profile</Nav.Link>
-					<NavDropdown title="Co-Lab" id="collasible-nav-dropdown">
+					<NavDropdown title="Projects" id="collasible-nav-dropdown">
 						<NavDropdown.Item href="/projects/">View Projects</NavDropdown.Item>
-						<NavDropdown.Item href="/">My Projects</NavDropdown.Item>
 						<NavDropdown.Item href="/projects/add">Create Project</NavDropdown.Item>
 						<NavDropdown.Divider />
 						<NavDropdown.Item href="/applications">Applications</NavDropdown.Item>
@@ -33,13 +32,13 @@ const NavBar = props => {
 			</Navbar.Collapse>
 		</Navbar>
 	) : (
-		<Navbar collapseOnSelect expand="lg" >
-			<Navbar.Brand href="/">React-Bootstrap</Navbar.Brand>
+		<Navbar className="navbar" collapseOnSelect expand="lg">
+			<Navbar.Brand href="/">co-Lab</Navbar.Brand>
 			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="mr-auto">
 					<Nav.Link href="/">Home</Nav.Link>
-					<Nav.Link href="/">Projects</Nav.Link>
+					<Nav.Link href="/projects/">Projects</Nav.Link>
 				</Nav>
 				<Nav>
 					<NavDropdown title="Account" id="collapsible-nav-dropdown" className="ml-auto">
