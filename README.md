@@ -14,6 +14,8 @@
 - [License](#license)
 - [Contact](#contact)
 - [co-Lab](#co-lab)
+- [Future](#future)
+  - [Coming Soon to co-Lab](#coming-soon-to-co-lab)
 
 
 <!-- ABOUT THE PROJECT -->
@@ -103,6 +105,19 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [co-Lab Now!](http://co-lab-oration.herokuapp.com/)
 
 
+<!-- Future of Co-Lab -->
+## Future
+
+### Coming Soon to co-Lab
+
+- Match-making Function: Match users based on Role and positions looking for particular role, using matching algorithm logic.
+- Allow users to message in real time, through SocketIO.
+- Allow users to set up position requirements, for free public access, or restricted to invite/requests only, as currently, it is only request access restricted.
+- Allow profile searches, and collaboration searches, based on defining Roles or different criteria.
+- Back end changes:
+  - Switch database to relational database
+  - Change model project to collaboration
+  - Extensive models update for more information
 
 
 
