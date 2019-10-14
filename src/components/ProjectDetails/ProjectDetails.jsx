@@ -62,16 +62,16 @@ export default class ProjectDetails extends Component {
 		return (
 			<Container>
 				<Row className="mt-5">
-					<div className="col-8 mx-auto">
+					<div className="col-12 mx-auto">
 						<Card className="app-panel">
 							<Card.Body>
 								<Row>
 									<div className="col-12 col-lg-8 col-md-6 text-left">
 										<h3 className="mb-0 text-truncated">{this.state.project.project_name}</h3>
-										{this.state.project !== "" ? <small className="mb-5 text-truncated text-muted">created by {this.state.project.project_owner.username}</small> : "Loading..."}
+										{this.state.project !== "" ? <small className="mb-5 text-truncated text-muted">created by @{this.state.project.project_owner.username}</small> : "Loading..."}
 										<p className="mt-4 mb-3 text-truncated">{this.state.project.project_description}</p>
 										{this.state.project !== "" && this.state.project.project_members !== "" ? <small className="mb-0 text-truncated">co-Lab of</small> : ""}
-										{this.state.project !== "" ? this.state.project.project_members.map(member => (member.username !== "" ? <span className="mb-0 text-truncated"> {member.username} </span> : "")) : ""}
+										<small className="mb-0 text-truncated">{this.state.project !== "" ? this.state.project.project_members.map(member => (member.username !== "" ? <span className="mb-0 text-truncated"> @{member.username} </span> : "")) : ""}</small>
 										<p className="my-5"></p>
 
 										{this.state.project.project_github_link !== null ? (

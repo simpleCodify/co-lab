@@ -9,7 +9,7 @@ const NavBar = props => {
 	let nav = props.user ? (
 		<Navbar collapseOnSelect expand="lg">
 			<Navbar.Brand href="/">co-Lab</Navbar.Brand>
-			<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+			<Navbar.Toggle className="mr-auto" aria-controls="responsive-navbar-nav" />
 			<Navbar.Collapse id="responsive-navbar-nav">
 				<Nav className="mr-auto">
 					<Nav.Link href="/">Home</Nav.Link>

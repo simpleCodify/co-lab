@@ -23,11 +23,12 @@ const CardPanel = props => {
 						<Card.Title>Project Leader: {props.owner}</Card.Title>
 						<Card.Text>{props.desc}</Card.Text>
 						<Card.Subtitle>
-							Project Members: <p>{props.members !== "" ? props.members.map(member => <small> {member.username} </small>) : "Loading..."}</p>
+							Project Members: <p>{props.members !== "" ? props.members.map(member => <small> @{member.username} </small>) : "Loading..."}</p>
 						</Card.Subtitle>
 						<br />
 						<Card.Subtitle>{props.team_size - props.members.length} Positions Available</Card.Subtitle>
-						<Card.Link>
+						<hr />
+						<Card.Link className="my-2">
 							<Link className="rr_link" to={`/projects/${props.id}`}>
 								Details
 							</Link>
