@@ -24,7 +24,7 @@ const PositionPanel = props => {
 										{props.pos.user !== null ? <p className="mb-0 text-truncated">{props.posstatus}</p> : <p className="mb-0 text-truncated">Open</p>}
 										{props.pos.user !== props.user._id && props.project.project_owner._id !== props.user._id && props.pos.user == null ? <p className="mb-0 text-truncated">Apply Now!</p> : ""}
 									</div>
-									{props.posuser !== props.user._id && props.posstatus == "Open" && !props.project.project_members.includes(props.user._id) ? (
+									{props.posuser !== props.user._id && props.posstatus == "Open" && !props.project.project_members.includes(props.user._id) && props.user._id !== props.project.project_owner._id ? (
 										<div className="svg-wrapper mx-auto text-center">
 											<svg height="35" width="200">
 												<rect className="mx-auto my-auto shape" height="35" width="200" />
