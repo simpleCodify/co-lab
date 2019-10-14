@@ -30,6 +30,7 @@ app.use("/api/applications", applicationsRouter);
 app.use(require("./config/auth"));
 
 app.get("/*", function(req, res) {
+	// res.status(404).send("You are not Logged In!");
 	res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 

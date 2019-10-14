@@ -53,6 +53,13 @@ class App extends Component {
 		});
 	};
 
+	updateProjectState = async () => {
+		const projects = await projectAPI.getAllProjects();
+		this.setState({
+			projects: projects
+		});
+	};
+
 	handleUpdateUser = async () => {
 		const userid = this.state.user._id;
 		// console.log(this.state);
@@ -72,13 +79,15 @@ class App extends Component {
 	};
 
 	async componentDidMount() {
-		const userid = this.state.user._id;
 		const projects = await projectAPI.getAllProjects();
+		this.setState({ projects: projects });
+
+		const userid = this.state.user._id;
 		Axios.get(`/api/users/${userid}`)
 			.then(response => {
 				this.setState({
-					user: response.data,
-					projects: projects
+					user: response.data
+					// projects: projects
 				});
 			})
 			.catch(err => console.log(err));
