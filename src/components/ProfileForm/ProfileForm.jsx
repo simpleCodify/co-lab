@@ -50,9 +50,20 @@ class ProfileForm extends Component {
 						<Form.Group as={Col}>
 							<Form.Label>Role</Form.Label>
 							<Form.Control as="select" value={this.state.role} name="role" onChange={this.handleChange}>
+								<option value={"Software Engineer"}>Software Engineer</option>
 								<option value={"Front-End Developer"}>Front-End Developer</option>
+								<option value={"React Developer"}>React Developer</option>
+								<option value={"Angular Developer"}>Angular Developer</option>
+								<option value={"Vue Developer"}>Vue Developer</option>
 								<option value={"Back-End Developer"}>Back-End Developer</option>
+								<option value={"Database Administrator"}>Database Administrator</option>
+								<option value={"Database Architect"}>Database Architect</option>
+								<option value={"Java Engineer"}>Java Engineer</option>
+								<option value={"Javascript Engineer"}>Javascript Engineer</option>
+								<option value={"Python Engineer"}>Python Engineer</option>
+								<option value={"Ruby Engineer"}>Ruby Engineer</option>
 								<option value={"UI/UX Designer"}>UI/UX Designer</option>
+								<option value={"Systems Architect"}>Systems Architect</option>
 							</Form.Control>
 						</Form.Group>
 					</Form.Row>
