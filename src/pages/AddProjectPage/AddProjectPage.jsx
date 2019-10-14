@@ -41,9 +41,9 @@ class AddProjectPage extends Component {
 	render() {
 		return (
 			<>
-				<div className="col-md-6 my-5 mx-auto text-center add-project-panel">
+				<div className="col-md-6 my-5 mx-auto text-center add-project-panel light-border">
 					<Jumbotron className="my-5 add-project-panel">
-						<Container style={{ color: "#ffffff" }}>
+						<Container>
 							<h1>Start a Project!</h1>
 							<p>Let's get Started by first creating your project!</p>
 						</Container>
@@ -105,7 +105,7 @@ class AddProjectPage extends Component {
 							<svg height="35" width="200">
 								<rect className="mx-auto my-auto shape" height="35" width="200" />
 							</svg>
-							<button className="text2 rr_link2 mx-auto my-auto" type="submit">
+							<button className="text3 rr_link mx-auto my-auto" type="submit">
 								Submit
 							</button>
 						</div>

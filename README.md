@@ -50,9 +50,7 @@ You may also suggest changes by forking this repo and creating a pull request or
 * [MongoDB](https://www.mongodb.com/)
 * [Mongoose](https://mongoosejs.com)
 * [React](https://reactjs.org)
-* Html
-* Css
-* Javascript
+* HTML + CSS + Javascript
 
 
 <!-- CONTRIBUTING -->
