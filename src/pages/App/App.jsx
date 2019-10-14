@@ -111,16 +111,12 @@ class App extends Component {
 					<Route exact path="/projects/" render={({ history }) => <ProjectListPage history={history} user={this.state.user} projects={this.state.projects} />} />
 					<Route exact path="/projects/add" render={({ history }) => <AddProjectPage history={history} handleAddProject={this.handleAddProject} user={this.state.user} />} />
 					<Route path="/projects/:id" component={ProjectDetails} user={this.state.user} handleAddApplication={this.handleAddApplication} />
-					{/* <Route path="/projects/position/:id" component={PositionDetails} /> */}
 
 					{/* Application Routes */}
 					<Route path="/application/:id" component={ApplicationManager} history={this.history} />
-					{/* <Route path="/application/:id" render={({ history }) => <ApplicationManager history={history} />} /> */}
 
 					{/* User Signup / Login Routes */}
 					<Route path="/portal" render={({ history }) => <UserPortal history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
-					{/* <Route path="/signup" render={({ history }) => <SignupPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} />
-					<Route path="/login" render={({ history }) => <LoginPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />} /> */}
 				</Switch>
 			</div>
 		);

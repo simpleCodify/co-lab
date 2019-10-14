@@ -21,6 +21,7 @@ async function index(req, res) {
 async function detail(req, res) {
 	const project = await Project.findById(req.params.id)
 		.populate("project_owner")
+		.populate("project_members")
 		.exec((err, project) => {
 			console.log("SENDING THE POPULATION: ", project);
 			res.json(project);

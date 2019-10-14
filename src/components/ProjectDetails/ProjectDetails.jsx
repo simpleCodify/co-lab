@@ -5,7 +5,6 @@ import { Route, Switch } from "react-router-dom";
 
 // Importing Components
 import PositionPanel from "../../components/PositionPanel/PositionPanel";
-import PositionDetails from "../PositionDetails/PositionDetails";
 
 // Importing React-Bootstrap Components
 import Badge from "react-bootstrap/Badge";
@@ -61,87 +60,63 @@ export default class ProjectDetails extends Component {
 
 	render() {
 		return (
-			<>
-				<Container>
-					<Row className="mt-5">
-						<div className="col-8 mx-auto">
-							<Card className="app-panel">
-								<Card.Body>
-									<Row>
-										<div className="col-12 col-lg-8 col-md-6 text-left">
-											<h3 className="mb-4 text-truncated">{this.state.project.project_name}</h3>
-											<p className="mb-0 text-truncated">{this.state.project.project_description}</p>
-											{this.state.project !== "" ? <p className="mb-0 text-truncated text-muted">created by {this.state.project.project_owner.username}</p> : "Loading..."}
-											<p className="my-5"></p>
-											{this.state.project.project_github_link !== null ? (
-												<Badge className="mr-2" pill variant="dark">
-													<a className="rr_link2" href={this.state.project.project_github_link}>
-														github
-													</a>
-												</Badge>
-											) : (
-												""
-											)}
-											{this.state.project.project_slack_link !== null ? (
-												<Badge className="mr-2" pill variant="warning">
-													<a className="rr_link2" href={this.state.project.project_slack_link}>
-														slack
-													</a>
-												</Badge>
-											) : (
-												""
-											)}
-											{this.state.project.project_trello_link !== null ? (
-												<Badge className="mr-2" pill variant="info">
-													<a className="rr_link2" href={this.state.project.project_trello_link}>
-														trello
-													</a>
-												</Badge>
-											) : (
-												""
-											)}
-										</div>
-									</Row>
-									<Accordion className="my-5">
-										<Accordion.Toggle as={Card.Header} eventKey="positions">
-											<Card.Title>Positions</Card.Title>
-										</Accordion.Toggle>
+			<Container>
+				<Row className="mt-5">
+					<div className="col-8 mx-auto">
+						<Card className="app-panel">
+							<Card.Body>
+								<Row>
+									<div className="col-12 col-lg-8 col-md-6 text-left">
+										<h3 className="mb-0 text-truncated">{this.state.project.project_name}</h3>
+										{this.state.project !== "" ? <small className="mb-5 text-truncated text-muted">created by {this.state.project.project_owner.username}</small> : "Loading..."}
+										<p className="mt-4 mb-3 text-truncated">{this.state.project.project_description}</p>
+										{this.state.project !== "" && this.state.project.project_members !== "" ? <small className="mb-0 text-truncated">co-Lab of</small> : ""}
+										{this.state.project !== "" ? this.state.project.project_members.map(member => (member.username !== "" ? <span className="mb-0 text-truncated"> {member.username} </span> : "")) : ""}
+										<p className="my-5"></p>
 
-										<Accordion.Collapse eventKey="positions">
-											<div className="row mx-auto">{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} posnum={idx + 1} pos={pos} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}</div>
-										</Accordion.Collapse>
-									</Accordion>
-								</Card.Body>
-							</Card>
-						</div>
-					</Row>
-					<Switch>
-						<Route path="/projects/position/:id" component={PositionDetails} positionData={this.state.positions} />
-					</Switch>
-				</Container>
+										{this.state.project.project_github_link !== null ? (
+											<Badge className="mr-2" pill variant="dark">
+												<a className="rr_link2" href={this.state.project.project_github_link}>
+													github
+												</a>
+											</Badge>
+										) : (
+											""
+										)}
+										{this.state.project.project_slack_link !== null ? (
+											<Badge className="mr-2" pill variant="warning">
+												<a className="rr_link2" href={this.state.project.project_slack_link}>
+													slack
+												</a>
+											</Badge>
+										) : (
+											""
+										)}
+										{this.state.project.project_trello_link !== null ? (
+											<Badge className="mr-2" pill variant="info">
+												<a className="rr_link2" href={this.state.project.project_trello_link}>
+													trello
+												</a>
+											</Badge>
+										) : (
+											""
+										)}
+									</div>
+								</Row>
+								<Accordion className="my-5">
+									<Accordion.Toggle as={Card.Header} eventKey="positions">
+										<Card.Title>Positions</Card.Title>
+									</Accordion.Toggle>
 
-				{/* <div className="col-md-9 my-5 mx-auto text-center add-project-panel">
-					<Jumbotron className="my-5 add-project-panel">
-						<Container style={{ color: "#ffffff" }}>
-							<h1>Project Details</h1>
-							<h3>Project Name: {this.state.project.project_name}</h3>
-
-							<h4>Project Description: {this.state.project.project_description}</h4>
-							{this.state.project !== "" ? <h4>Project Owner: {this.state.project.project_owner.username}</h4> : "Loading..."}
-
-							<h5>Project Team Size: {this.state.project.project_team_size}</h5>
-						</Container>
-					</Jumbotron>
-
-					<br />
-
-					<div className="row mx-auto">{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} posnum={idx + 1} pos={pos} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}</div>
-
-					<Switch>
-						<Route path="/projects/position/:id" component={PositionDetails} positionData={this.state.positions} />
-					</Switch>
-				</div> */}
-			</>
+									<Accordion.Collapse eventKey="positions">
+										<div className="row mx-auto">{this.state.project !== "" ? this.state.project.positions.map((pos, idx) => <PositionPanel key={idx} posnum={idx + 1} pos={pos} project={this.state.project} posid={pos._id} posuser={pos.user} posstatus={pos.status} user={this.state.user} onsubmit={this.handleSubmit} applyclick={this.handleApplyClick} />) : "Loading..."}</div>
+									</Accordion.Collapse>
+								</Accordion>
+							</Card.Body>
+						</Card>
+					</div>
+				</Row>
+			</Container>
 		);
 	}
 }
