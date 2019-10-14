@@ -17,32 +17,37 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![co-Lab-screenshot][co-Lab-screenshot]](https://i.imgur.com/7N7shAJ.png)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
+co-Lab is a platform where Users around the world can come together to collaborate on a project. Whether you're a back-end developer, full-stack engineer, database engineer, UI/UX Designer, React developer, or a software engineer that excels in algorithms, you could be lacking in a specific aspect of developing a Project from concept to realization.
+
+That's where co-Lab comes in!
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
+* Your time should be focused on working on something you specialize in and enjoy!
+* You don't have to spend hours upon hours trying to figure out how to implement a noSQL database, when you have no need of that knowledge elsewhere.
 * You should element DRY principles to the rest of your life :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
+Current version of co-Lab supports back-end, front-end developer roles, and UI/UX designer role, but more will be implemented in the future to support a wider variety of users!
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+In the near future, I will be adding the functionality of categorically arranging projects, with a structured architecture.
+
+Also, the possibilities of adding fields outside of Software engineering, such as Music, Photography, Cinematography. 
+
+
+You may also suggest changes by forking this repo and creating a pull request or opening an issue.
 
 ### Built With
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
 
-
-
-
-
-
-
-
+* [React-Bootstrap](https://react-bootstrap.github.io)
+* [Node.js](https://nodejs.org/en/)
+* [Express.js](https://expressjs.com)
+* [MongoDB](https://www.mongodb.com/)
+* [Mongoose](https://mongoosejs.com)
+* [React](https://reactjs.org)
+* Html
+* Css
+* Javascript
 
 
 <!-- CONTRIBUTING -->
@@ -68,7 +73,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/simpleCodify/co-lab](co-Lab Repo)
+* [LinkedIn](https://www.linkedin.com/in/jonathan-pak/)
 
 
 
@@ -90,5 +95,5 @@ Project Link: [https://github.com/simpleCodify/co-lab](co-Lab Repo)
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=flat-square
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/jonathan-pak/
 [product-screenshot]: images/screenshot.png
