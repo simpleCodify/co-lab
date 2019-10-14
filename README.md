@@ -10,6 +10,7 @@
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Contributing](#contributing)
+- [Screenshots](#screenshots)
 - [License](#license)
 - [Contact](#contact)
 
@@ -17,7 +18,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![co-Lab-screenshot][co-Lab-screenshot]](https://i.imgur.com/7N7shAJ.png)
+![co-Lab Home Screenshot][home-screenshot]
+
 
 co-Lab is a platform where Users around the world can come together to collaborate on a project. Whether you're a back-end developer, full-stack engineer, database engineer, UI/UX Designer, React developer, or a software engineer that excels in algorithms, you could be lacking in a specific aspect of developing a Project from concept to realization.
 
@@ -62,6 +64,24 @@ Contributions are what makes the open source community such an amazing place to 
 5. Open a Pull Request
 
 
+<!-- SCREENSHOTS -->
+## Screenshots
+
+* Home Screen
+![co-Lab Home Screenshot][home-screenshot]
+
+
+* Create a Project
+![co-Lab Create Screenshot][create-screenshot]
+
+* Project Listings
+![co-Lab List Screenshot][list-screenshot]
+
+* Project Details
+![co-Lab Details Screenshot][details-screenshot]
+
+
+
 
 <!-- LICENSE -->
 ## License
@@ -97,3 +117,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jonathan-pak/
 [product-screenshot]: images/screenshot.png
+[home-screenshot]: src/assets/images/HomeScreen.png
+[create-screenshot]: src/assets/images/CreateProject.png
+[list-screenshot]: src/assets/images/ProjectList.png
+[details-screenshot]: src/assets/images/ProjectDetails.png
