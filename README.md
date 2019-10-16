@@ -101,6 +101,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- Co-Lab Now -->
 ## co-Lab
 [co-Lab Now!](http://co-lab-oration.herokuapp.com/)
+[co-Lab Trello](https://trello.com/b/zyoAM2oK/co-lab)
 
 
 <!-- Future of Co-Lab -->
